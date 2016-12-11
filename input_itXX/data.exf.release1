@@ -1,0 +1,212 @@
+# *********************
+# External Forcing Data
+# *********************
+#
+ &EXF_NML_01
+#
+ useAtmWind        = .FALSE.,
+#NCEP VALUES:
+# exf_albedo        = 0.15,
+# exf_scal_BulkCdn  = 1.015,
+#
+#TO COMBINE WITH ALLOW_ZENITH_ANGLE:
+ exf_albedo        = 0.1,
+ useExfZenIncoming = .TRUE., 
+ select_ZenAlbedo  = 1,
+#
+ ocean_emissivity = 0.97,
+ ice_emissivity = 0.95,
+ snow_emissivity = 0.95,
+#
+ exf_iprec         = 32,
+ exf_yftype        = 'RL',
+ useExfYearlyFields= .TRUE.,
+ useExfCheckRange  = .FALSE.,
+ &
+#
+ &EXF_NML_02
+ ustressfile       = 'EIG_ustr',
+ vstressfile       = 'EIG_vstr',
+ atempfile         = 'EIG_tmp2m_degC',
+ aqhfile           = 'EIG_spfh2m',
+ precipfile        = 'EIG_rain',
+# uwindfile         = 'EIG_u10m',
+# vwindfile         = 'EIG_v10m',
+ wspeedfile        = 'EIG_wspeed',
+ swdownfile        = 'EIG_dsw',
+ lwdownfile        = 'EIG_dlw',
+### apressurefile     = 'EIG_pres',
+#
+ ustressstartdate1   = 19920101,
+ ustressstartdate2   = 030000,
+ ustressperiod       = 21600.0,
+#
+ vstressstartdate1   = 19920101,
+ vstressstartdate2   = 030000,
+ vstressperiod       = 21600.0,
+#
+ atempstartdate1   = 19920101,
+ atempstartdate2   = 030000,
+ atempperiod       = 21600.0,
+#
+ aqhstartdate1     = 19920101,
+ aqhstartdate2     = 030000,
+ aqhperiod         = 21600.0,
+#
+ precipstartdate1  = 19920101,
+ precipstartdate2  = 030000,
+ precipperiod      = 21600.0,
+#
+ runofffile        = 'runoff-2d-Fekete-1deg-mon-V4-SMOOTH.bin',
+ runoffperiod      = -12,
+#
+ uwindstartdate1   = 19920101,
+ uwindstartdate2   = 030000,
+ uwindperiod       = 21600.0,
+#
+ vwindstartdate1   = 19920101,
+ vwindstartdate2   = 030000,
+ vwindperiod       = 21600.0,
+#
+ wspeedstartdate1   = 19920101,
+ wspeedstartdate2   = 030000,
+ wspeedperiod       = 21600.0,
+#
+ swdownstartdate1  = 19920101,
+ swdownstartdate2  = 030000,
+ swdownperiod      = 21600.0,
+#
+ lwdownstartdate1  = 19920101,
+ lwdownstartdate2  = 030000,
+ lwdownperiod      = 21600.0,
+#
+ apressurestartdate1   = 19920101,
+ apressurestartdate2   = 030000,
+ apressureperiod       = 21600.0,
+#
+ climsstperiod     = -12.,
+#climsssfile       = 'SSS_WPv1_M_eccollc_90x50.bin',
+ climsssperiod     = -12.,
+#climsssTauRelax   = 15768000.,
+ &
+#
+ &EXF_NML_03
+#NOT FOR EIG exf_offset_atemp  = 273.3971,
+ exf_offset_atemp  = 273.15,
+#NOT FOR NEW RUNOFF FIELD exf_inscal_runoff = 3.1710e-08,
+ exf_inscal_swdown = -1.0,
+#the value I would now use, if I started over. But to recover old results ...
+#exf_inscal_lwdown = -1.0,
+#... old results, where ocean emissivity was wrongly treated as 1 for lwdown:
+ exf_inscal_lwdown = -1.03,
+ exf_inscal_ustress = -1.0,
+ exf_inscal_vstress = -1.0,
+# to compensate for sea level rise for nlfs/realFWF
+#precip_exfremo_intercept = 1.073E-9,
+#precip_exfremo_slope = -3.340E-18,
+ &
+#
+ &EXF_NML_04
+ runoff_interpMethod = 0,
+ climsss_interpMethod = 0,
+#
+ ustress_lon0        =   0.0000000D0,
+ ustress_lon_inc     =   0.7031250D0,
+ ustress_lat0        = -89.4628220D0,
+ ustress_lat_inc     = 0.6958694,0.6999817,0.7009048,0.7012634,0.7014313,
+                     245*0.7017418,
+                     0.7014313,0.7012634,0.7009048,0.6999817,0.6958694
+ ustress_nlon        = 512,
+ ustress_nlat        = 256,
+#
+ vstress_lon0        =   0.0000000D0,
+ vstress_lon_inc     =   0.7031250D0,
+ vstress_lat0        = -89.4628220D0,
+ vstress_lat_inc     = 0.6958694,0.6999817,0.7009048,0.7012634,0.7014313,
+                     245*0.7017418,
+                     0.7014313,0.7012634,0.7009048,0.6999817,0.6958694
+ vstress_nlon        = 512,
+ vstress_nlat        = 256,
+#
+ atemp_lon0        =   0.0000000D0,
+ atemp_lon_inc     =   0.7031250D0,
+ atemp_lat0        = -89.4628220D0,
+ atemp_lat_inc     = 0.6958694,0.6999817,0.7009048,0.7012634,0.7014313,
+                     245*0.7017418,
+                     0.7014313,0.7012634,0.7009048,0.6999817,0.6958694
+ atemp_nlon        = 512,
+ atemp_nlat        = 256,
+#
+ aqh_lon0        =   0.0000000D0,
+ aqh_lon_inc     =   0.7031250D0,
+ aqh_lat0        = -89.4628220D0,
+ aqh_lat_inc     = 0.6958694,0.6999817,0.7009048,0.7012634,0.7014313,
+                     245*0.7017418,
+                     0.7014313,0.7012634,0.7009048,0.6999817,0.6958694
+ aqh_nlon        = 512,
+ aqh_nlat        = 256,
+#
+ precip_lon0        =   0.0000000D0,
+ precip_lon_inc     =   0.7031250D0,
+ precip_lat0        = -89.4628220D0,
+ precip_lat_inc     = 0.6958694,0.6999817,0.7009048,0.7012634,0.7014313,
+                     245*0.7017418,
+                     0.7014313,0.7012634,0.7009048,0.6999817,0.6958694
+ precip_nlon        = 512,
+ precip_nlat        = 256,
+#
+ uwind_lon0        =   0.0000000D0,
+ uwind_lon_inc     =   0.7031250D0,
+ uwind_lat0        = -89.4628220D0,
+ uwind_lat_inc     = 0.6958694,0.6999817,0.7009048,0.7012634,0.7014313,
+                     245*0.7017418,
+                     0.7014313,0.7012634,0.7009048,0.6999817,0.6958694
+ uwind_nlon        = 512,
+ uwind_nlat        = 256,
+#
+ vwind_lon0        =   0.0000000D0,
+ vwind_lon_inc     =   0.7031250D0,
+ vwind_lat0        = -89.4628220D0,
+ vwind_lat_inc     = 0.6958694,0.6999817,0.7009048,0.7012634,0.7014313,
+                     245*0.7017418,
+                     0.7014313,0.7012634,0.7009048,0.6999817,0.6958694
+ vwind_nlon        = 512,
+ vwind_nlat        = 256,
+#
+ wspeed_lon0        =   0.0000000D0,
+ wspeed_lon_inc     =   0.7031250D0,
+ wspeed_lat0        = -89.4628220D0,
+ wspeed_lat_inc     = 0.6958694,0.6999817,0.7009048,0.7012634,0.7014313,
+                     245*0.7017418,
+                     0.7014313,0.7012634,0.7009048,0.6999817,0.6958694
+ wspeed_nlon        = 512,
+ wspeed_nlat        = 256,
+#
+ swdown_lon0        =   0.0000000D0,
+ swdown_lon_inc     =   0.7031250D0,
+ swdown_lat0        = -89.4628220D0,
+ swdown_lat_inc     = 0.6958694,0.6999817,0.7009048,0.7012634,0.7014313,
+                     245*0.7017418,
+                     0.7014313,0.7012634,0.7009048,0.6999817,0.6958694
+ swdown_nlon        = 512,
+ swdown_nlat        = 256,
+#
+ lwdown_lon0        =   0.0000000D0,
+ lwdown_lon_inc     =   0.7031250D0,
+ lwdown_lat0        = -89.4628220D0,
+ lwdown_lat_inc     = 0.6958694,0.6999817,0.7009048,0.7012634,0.7014313,
+                     245*0.7017418,
+                     0.7014313,0.7012634,0.7009048,0.6999817,0.6958694
+ lwdown_nlon        = 512,
+ lwdown_nlat        = 256,
+#
+ apressure_lon0        =   0.0000000D0,
+ apressure_lon_inc     =   0.7031250D0,
+ apressure_lat0        = -89.4628220D0,
+ apressure_lat_inc     = 0.6958694,0.6999817,0.7009048,0.7012634,0.7014313,
+                     245*0.7017418,
+                     0.7014313,0.7012634,0.7009048,0.6999817,0.6958694
+ apressure_nlon        = 512,
+ apressure_nlat        = 256,
+#
+ &

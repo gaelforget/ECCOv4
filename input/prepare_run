@@ -1,0 +1,31 @@
+#! /usr/bin/env bash
+
+dirList="../../global_oce_llc90/input.ecco_v4/input.short/ ../../global_oce_llc90/input_fields/ ../../global_oce_llc90/input.ecco_v4/ ../../global_oce_input_fields/ecmwf/ ../../global_oce_input_fields/ecco_v4/"
+
+\rm data data.ctrl data.exf data.optim data.pkg data.profiles data.seaice
+
+for fromDir in $dirList
+do
+
+#- and do a symbolic link in the current directory
+#   (if the file does not already exist)
+if test -d $fromDir ; then
+  fileList=`( cd $fromDir ; ls -1 )`
+  lnkList='files:'
+  for xx in $fileList
+  do
+    if test -r ${fromDir}/$xx ; then
+      if test ! -r $xx ; then
+        lnkList=${lnkList}" "$xx
+        ln -sf ${fromDir}/$xx .
+      fi
+    fi
+  done
+  echo ' link' $lnkList "from dir:" $fromDir
+else
+  echo " Error:" $fromDir "not a directory"
+fi
+done
+
+../input/prepare_run
+

@@ -1,0 +1,36 @@
+# *********************
+# ECCO control variables
+# *********************
+ &ctrl_nml
+ doSinglePrecTapelev=.TRUE.,
+#to start from given xx*00.data files
+  doinitxx = .FALSE.,
+  doMainUnpack = .FALSE.,
+#to start from given ecco_ctrl... files
+# doinitxx = .FALSE.,
+ &
+#
+# *********************
+# names for ctrl_pack/unpack
+# *********************
+ &ctrl_packnames
+ &
+#
+# *********************
+# names for CTRL_GENARR2D,3D CTRL_GENTIM2D
+# *********************
+ &CTRL_NML_GENARR
+#
+ xx_genarr3d_weight(1) = 'wt_ones.data',
+ xx_genarr3d_file(1)='xx_kapgm',
+ mult_genarr3d(1) = 0.,
+#
+ xx_genarr3d_weight(2) = 'wt_ones.data',
+ xx_genarr3d_file(2)='xx_kapredi',
+ mult_genarr3d(2) = 0.,
+#
+ xx_genarr3d_weight(3) = 'wt_ones.data',
+ xx_genarr3d_file(3)='xx_diffkr',
+ mult_genarr3d(3) = 0.,
+#
+ &

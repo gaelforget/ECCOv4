@@ -1,0 +1,121 @@
+# *********************
+# External Forcing Data
+# *********************
+#
+ &EXF_NML_01
+#
+ useAtmWind        = .FALSE.,
+ readStressOnAgrid = .TRUE.,
+ rotateStressOnAgrid = .TRUE.,
+#NCEP VALUES:
+# exf_albedo        = 0.15,
+# exf_scal_BulkCdn  = 1.015,
+#
+#TO COMBINE WITH ALLOW_ZENITH_ANGLE:
+ exf_albedo        = 0.1,
+ useExfZenIncoming = .TRUE., 
+ select_ZenAlbedo  = 1,
+#
+ ocean_emissivity = 0.97,
+ ice_emissivity = 0.95,
+ snow_emissivity = 0.95,
+#
+ exf_iprec         = 32,
+ exf_yftype        = 'RL',
+ useExfYearlyFields= .TRUE.,
+ useExfCheckRange  = .FALSE.,
+ &
+#
+ &EXF_NML_02
+ ustressfile       = 'forcing_baseline2/eccov4r2_ustr',
+ vstressfile       = 'forcing_baseline2/eccov4r2_vstr',
+ atempfile         = 'forcing_baseline2/eccov4r2_tmp2m_degC',
+ aqhfile           = 'forcing_baseline2/eccov4r2_spfh2m',
+ precipfile        = 'forcing_baseline2/eccov4r2_rain',
+ wspeedfile        = 'forcing_baseline2/eccov4r2_wspeed',
+ swdownfile        = 'forcing_baseline2/eccov4r2_dsw',
+ lwdownfile        = 'forcing_baseline2/eccov4r2_dlw',
+#
+ ustressstartdate1   = 19920101,
+ ustressstartdate2   = 030000,
+ ustressperiod       = 21600.0,
+#
+ vstressstartdate1   = 19920101,
+ vstressstartdate2   = 030000,
+ vstressperiod       = 21600.0,
+#
+ atempstartdate1   = 19920101,
+ atempstartdate2   = 030000,
+ atempperiod       = 21600.0,
+#
+ aqhstartdate1     = 19920101,
+ aqhstartdate2     = 030000,
+ aqhperiod         = 21600.0,
+#
+ precipstartdate1  = 19920101,
+ precipstartdate2  = 030000,
+ precipperiod      = 21600.0,
+#
+ runofffile        = 'runoff.bin',
+ runoffperiod      = -12,
+#
+ uwindstartdate1   = 19920101,
+ uwindstartdate2   = 030000,
+ uwindperiod       = 21600.0,
+#
+ vwindstartdate1   = 19920101,
+ vwindstartdate2   = 030000,
+ vwindperiod       = 21600.0,
+#
+ wspeedstartdate1   = 19920101,
+ wspeedstartdate2   = 030000,
+ wspeedperiod       = 21600.0,
+#
+ swdownstartdate1  = 19920101,
+ swdownstartdate2  = 030000,
+ swdownperiod      = 21600.0,
+#
+ lwdownstartdate1  = 19920101,
+ lwdownstartdate2  = 030000,
+ lwdownperiod      = 21600.0,
+#
+ apressurestartdate1   = 19920101,
+ apressurestartdate2   = 030000,
+ apressureperiod       = 21600.0,
+#
+ climsstperiod     = -12.,
+#climsssfile       = 'SSS_WPv1_M_eccollc_90x50.bin',
+ climsssperiod     = -12.,
+#climsssTauRelax   = 15768000.,
+ &
+#
+ &EXF_NML_03
+#NOT FOR EIG exf_offset_atemp  = 273.3971,
+ exf_offset_atemp  = 273.15,
+#NOT FOR NEW RUNOFF FIELD exf_inscal_runoff = 3.1710e-08,
+ exf_inscal_swdown = -1.0,
+#the value I would now use, if I started over. But to recover old results ...
+#exf_inscal_lwdown = -1.0,
+#... old results, where ocean emissivity was wrongly treated as 1 for lwdown:
+ exf_inscal_lwdown = -1.0,
+ exf_inscal_ustress = -1.0,
+ exf_inscal_vstress = -1.0,
+# to compensate for sea level rise for nlfs/realFWF
+#precip_exfremo_intercept = 1.073E-9,
+#precip_exfremo_slope = -3.340E-18,
+ &
+#
+ &EXF_NML_04
+ ustress_interpMethod = 0,
+ vstress_interpMethod = 0,
+ atemp_interpMethod = 0,
+ aqh_interpMethod = 0,
+ precip_interpMethod = 0,
+ wspeed_interpMethod = 0,
+ swdown_interpMethod = 0,
+ lwdown_interpMethod = 0,
+ runoff_interpMethod = 0,
+ climsss_interpMethod = 0,
+#
+ &
+

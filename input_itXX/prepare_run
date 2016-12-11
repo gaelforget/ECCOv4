@@ -1,0 +1,40 @@
+#!/bin/csh -f
+
+set dirInputFields  = ../../global_oce_input_fields/
+set dirLlc90        = ../../global_oce_llc90/
+
+${dirLlc90}/input.ecco_v4/prepare_run
+
+#remove old executable, pickup and controls
+
+\rm mitgcmuv* pickup*ta xx*ta
+
+#replace namelist links with copies
+
+mkdir tmp_namelists
+\cp -f data* tmp_namelists/.
+\rm -f data*
+mv tmp_namelists/data* .
+rmdir tmp_namelists
+
+#overwrite old namelists
+
+\cp -f ${dirLlc90}/input_itXX/data* .
+
+#link correct executable, pickup, and controls (for user to fill in ...)
+#link additional cost function material (for user to fill in ...)
+
+#set builddir   = ????
+#\cp -f ${builddir}/mitgcmuv .
+
+#set inputdir   = ????
+#ln -s ${inputdir}/input*/* .
+#\cp -f ${inputdir}/pickup_r4it10/pickup*ta .
+
+#if ( $iter < 11 ) then
+#  \cp -f ${inputdir}/pickup_r4it9/pickup*ta .
+#  \cp -f data.optim_it9 data.optim
+#  \cp -f data_it9 data
+#endif
+
+
