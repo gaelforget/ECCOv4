@@ -1,5 +1,7 @@
 #!/bin/bash
 
+if [ ! -e MITgcm ]; then
+
 #install MITgcm
 echo '/1 :pserver:cvsanon@mitgcm.org:2401/u/gcmpack Ah<Zy=0=' > ~/.cvspass
 export CVS_RSH=ssh
@@ -24,4 +26,6 @@ cd MITgcm/mysetups/ECCO_v4_r2/build
 ../../../tools/genmake2 -mods=../code -optfile ../../../tools/build_options/linux_amd64_gfortran -mpi
 make depend
 make -j 4
+
+fi
 
