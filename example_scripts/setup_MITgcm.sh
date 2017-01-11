@@ -24,7 +24,7 @@ cd MITgcm/mysetups/ECCO_v4_r2/build
 ../../../tools/genmake2 -mods=../code -optfile ../../../tools/build_options/linux_amd64_gfortran -mpi
 make depend
 make -j 4
-cd ~
+cd ../../../..
 
 fi
 
