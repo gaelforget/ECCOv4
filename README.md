@@ -1,6 +1,6 @@
 # ECCO_v4_r2
 This repository provides the model setup and directions (see eccov4.pdf) to re-run ECCO v4 r2 using MITgcm.
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.225777.svg)](https://doi.org/10.5281/zenodo.225777)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.255746.svg)](https://doi.org/10.5281/zenodo.255746)
 
 ECCO v4 r2 (Estimating the Circulation and Climate of the Ocean, version 4, release 2; 
 https://dataverse.harvard.edu/dataverse/ECCOv4r2) is an ocean state estimate and solution 
