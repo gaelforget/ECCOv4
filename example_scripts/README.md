@@ -1,4 +1,5 @@
-# ECCO_v4_r2
+# ECCO_v4_r2/example_scripts/
+
 This repository provides scripts to re-run ECCO v4 r2 using MITgcm and a computer cluster of 96 vCPUs.
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.255746.svg)](https://doi.org/10.5281/zenodo.255746)
 
