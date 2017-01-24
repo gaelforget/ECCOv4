@@ -1,6 +1,6 @@
 # ECCO v4 r2
 
-[This repository][] provides guidelines (see [eccov4.pdf][]) to download or re-run ECCO v4 r2 using the included model setup and the [MITgcm][]. As of 2017/01/24 the latest release of this repository is:  
+[This repository][] provides codes and guidelines to re-run ECCO v4 r2 using the [MITgcm][] or to download ECCO v4 r2 output available online (see below and [eccov4.pdf][] for details). As of 2017/01/24 the latest release of this repository is:  
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.258952.svg)](https://doi.org/10.5281/zenodo.258952)
 
 [This repository]: https://github.com/gaelforget/ECCO_v4_r2/
