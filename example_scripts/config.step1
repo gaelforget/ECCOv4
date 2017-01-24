@@ -1,0 +1,18 @@
+[aws]
+aws_region_name = YOUR_AWS_REGION_NAME
+aws_access_key_id = YOUR_AWS_ACCESS_KEY_ID
+aws_secret_access_key = YOUR_AWS_SECRET_ACCESS_KEY
+
+[cluster default]
+vpc_settings = public
+key_name = YOUR_KEY_NAME
+
+[vpc public]
+master_subnet_id = subnet-597f0410
+vpc_id = vpc-537fb635
+
+[global]
+update_check = true
+sanity_check = true
+cluster_template = default
+

@@ -1,0 +1,31 @@
+[aws]
+aws_region_name = YOUR_AWS_REGION_NAME
+aws_access_key_id = YOUR_AWS_ACCESS_KEY_ID
+aws_secret_access_key = YOUR_AWS_SECRET_ACCESS_KEY
+
+[cluster default]
+vpc_settings = public
+key_name = YOUR_KEY_NAME
+post_install = https://raw.githubusercontent.com/gaelforget/ECCO_v4_r2/master/example_scripts/setup_rhel.sh
+ebs_settings = ECCOv4r2inputs
+master_instance_type = m4.large
+compute_instance_type = c4.4xlarge
+initial_queue_size = 6
+max_queue_size = 6
+cluster_type = spot
+spot_price = 0.20
+placement_group = DYNAMIC
+placement = cluster
+
+[vpc public]
+master_subnet_id = subnet-597f0410
+vpc_id = vpc-537fb635
+
+[global]
+update_check = true
+sanity_check = true
+cluster_template = default
+
+[ebs ECCOv4r2inputs]
+ebs_snapshot_id = snap-03a927d31811042e1
+
