@@ -3,7 +3,7 @@
 [This file][] provides instructions to run ECCO v4 r2 (Forget et al. 2015, 2016) using [MITgcm][] and [cfncluster][]. General purpose documentation for ECCO v4 r2 users can be found in [eccov4.pdf][]. For user support, if needed, contact <ecco-support@mit.edu> or <mitgcm-support@mit.edu>.
 
 [eccov4.pdf]: https://github.com/gaelforget/ECCO_v4_r2/blob/master/eccov4.pdf
-[This file]: https://github.com/gaelforget/ECCO_v4_r2/blob/master/example_scripts/README.cfncluster.md
+[This file]: https://github.com/gaelforget/ECCO_v4_r2/blob/master/example_scripts/README.md
 
 [cfncluster documentation]: http://cfncluster.readthedocs.io/en/latest/
 [cfncluster]: https://aws.amazon.com/hpc/cfncluster/
