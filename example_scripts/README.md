@@ -1,6 +1,6 @@
-#Using cfncluster with EC2 to run ECCO v4-r2
+#Using cfncluster to run ECCO v4 r2
 
-[This file][] provides instructions to run ECCO v4 r2 (Forget et al. 2015, 2016) using [MITgcm][] and [cfncluster][]. General purpose documentation for ECCO v4 r2 users can be found in [eccov4.pdf][]. For user support, if needed, contact <ecco-support@mit.edu> or <mitgcm-support@mit.edu>.
+[This file][] provides a recipe to run ECCO v4 r2 (Forget et al. 2015, 2016) using [MITgcm][] and [cfncluster][]. General purpose documentation for ECCO v4 r2 users can be found in [eccov4.pdf][]. For user support, if needed, contact <ecco-support@mit.edu> or <mitgcm-support@mit.edu>.
 
 [eccov4.pdf]: https://github.com/gaelforget/ECCO_v4_r2/blob/master/eccov4.pdf
 [This file]: https://github.com/gaelforget/ECCO_v4_r2/blob/master/example_scripts/README.md
@@ -13,7 +13,7 @@
 [Estimating the Circulation and Climate of the Ocean]: http://ecco-group.org/
 
 **important warning:**  
-before proceeding any further, users are advised to read the cfncluster documentation (<http://cfncluster.readthedocs.io/en/latest/index.html>) and learn about [AWS][] pricing policies. The cluster created via steps 1 and 2 below consists of one master instance (on-demand; m4.large) and six compute instances (spot; c4.4xlarge). Costs to the user may exceed several dollars per hour. Users are advised to evaluate costs for themselves before creating any cluster and to delete clusters as soon as they can be dispensed with in order to stop paying AWS EC2 charges (see step 7). 
+before proceeding any further, users are advised to read the cfncluster documentation (<http://cfncluster.readthedocs.io/en/latest/index.html>) and learn about [AWS][] pricing policies. The cluster created via steps 1 and 2 below consists of one master instance (on-demand; m4.large) and six compute instances (spot; c4.4xlarge). Costs to the user may exceed several dollars per hour. Users are advised to (1) evaluate AWS costs for themselves before creating any cluster and (2) always delete clusters to stop paying AWS charges (see step 7). 
 
 
 ##Instructions
