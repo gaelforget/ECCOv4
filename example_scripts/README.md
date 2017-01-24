@@ -11,6 +11,7 @@
 [cfncluster]: https://aws.amazon.com/hpc/cfncluster/
 
 [MITgcm]: http://mitgcm.org/
+[MIT general circulation model]: http://mitgcm.org/
 [Estimating the Circulation and Climate of the Ocean]: http://ecco-group.org/
 
 **important warning:**  
@@ -64,7 +65,7 @@ before proceeding any further, users are advised to learn about AWS pricing poli
 
 ##References
 
-ECCO v4 r2 ([Estimating the Circulation and Climate of the Ocean][], version 4, release 2) is an ocean state estimate and solution of the [MITgcm][] that covers the period from 1992 to 2011 (Forget et al., 2016). It is a minor update of the original ECCO v4 solution (Forget et al., 2015) that benefits from a few additional corrections listed in Forget et al. (2016) and is easier to analyze and re-run. It is available @ <https://dataverse.harvard.edu/dataverse/ECCOv4r2> and via ftp @ <ftp://mit.ecco-group.org/ecco_for_las/version_4/release2/>
+ECCO v4 r2 ([Estimating the Circulation and Climate of the Ocean][], version 4, release 2) is an ocean state estimate and solution of the MITgcm ([MIT general circulation model][]) that covers the period from 1992 to 2011 (Forget et al., 2016). It is a minor update of the original ECCO v4 solution (Forget et al., 2015) that benefits from a few additional corrections listed in Forget et al. (2016) and is easier to analyze and re-run. It is permanently archived via dataverse @ <https://dataverse.harvard.edu/dataverse/ECCOv4r2> and available via ftp @ <ftp://mit.ecco-group.org/ecco_for_las/version_4/release2/>
 
 Forget, G., J.-M. Campin, P. Heimbach, C. N. Hill, R. M. Ponte, and C. Wunsch, 2015: ECCO version 4: an integrated framework for non-linear inverse modeling and global ocean state estimation. Geoscientific Model Development, 8, 3071-3104, http://dx.doi.org/10.5194/gmd-8-3071-2015, <http://www.geosci-model-dev.net/8/3071/2015/>
 
