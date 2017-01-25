@@ -15,7 +15,8 @@
 [MIT general circulation model]: http://mitgcm.org/
 [Estimating the Circulation and Climate of the Ocean]: http://ecco-group.org/
 
-**Important warning:**  Before proceeding any further, users are advised to learn about AWS pricing policies and spot instances (<https://aws.amazon.com/ec2/pricing/>, <https://aws.amazon.com/ebs/pricing/>, etc.) as well as cfncluster and its configuration (<http://cfncluster.readthedocs.io/en/latest/index.html>). The cluster created via steps 1 and 2 below consists of one master instance (on-demand; m4.large) and six compute instances (spot; c4.4xlarge). Costs to the user may exceed several dollars per hour even when using spot instances. Users should make sure to (1) evaluate AWS costs for themselves before creating any cluster and (2) always delete clusters to stop paying AWS charges (see step 7). 
+###Important warning:  
+Before proceeding any further, users are advised to learn about AWS pricing policies and spot instances (<https://aws.amazon.com/ec2/pricing/>, <https://aws.amazon.com/ebs/pricing/>, etc.) as well as cfncluster and its configuration (<http://cfncluster.readthedocs.io/en/latest/index.html>). The cluster created via steps 1 and 2 below consists of one master instance (on-demand; m4.large) and six compute instances (spot; c4.4xlarge). Costs to the user may exceed several dollars per hour even when using spot instances. Users should make sure to (1) evaluate AWS costs for themselves before creating any cluster and (2) always delete clusters to stop paying AWS charges (see step 7). 
 
 
 ##Instructions
