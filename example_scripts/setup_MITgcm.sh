@@ -7,9 +7,6 @@ echo '/1 :pserver:cvsanon@mitgcm.org:2401/u/gcmpack Ah<Zy=0=' > ~/.cvspass
 export CVS_RSH=ssh
 cvs -Q -d :pserver:cvsanon@mitgcm.org:/u/gcmpack co MITgcm_verif_basic
 
-#display license
-cat MITgcm/LICENSE.txt
-
 #install ECCO v4 r2 setup
 mkdir MITgcm/mysetups
 cd MITgcm/mysetups
@@ -28,6 +25,9 @@ cd MITgcm/mysetups/ECCO_v4_r2/build
 make depend
 make -j 4
 cd ../../../..
+
+#display license
+cat MITgcm/LICENSE.txt
 
 fi
 
