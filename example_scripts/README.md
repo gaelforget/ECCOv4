@@ -9,6 +9,7 @@
 
 [cfncluster documentation]: http://cfncluster.readthedocs.io/en/latest/
 [cfncluster]: https://aws.amazon.com/hpc/cfncluster/
+[cfncluster software]: http://cfncluster.readthedocs.io/en/latest/
 
 [MITgcm]: http://mitgcm.org/
 [MIT general circulation model]: http://mitgcm.org/
@@ -21,22 +22,23 @@ before proceeding any further, users are advised to learn about AWS pricing poli
 ##Instructions
 
 ###step 1:  
-- launch a micro-instance of the Amazon Linux AMI (ami-9be6f38c at the time of writing); log-in and install the cfncluster software (see [cfncluster documentation][] for detail):  
+- using the AWS console, launch a micro-instance of the Amazon Linux AMI (ami-9be6f38c at time of writing); **log into this micro-instance** and install the [cfncluster software][]:  
 `sudo yum -y update`  
 `sudo pip install cfncluster`  
-- download the ECCO v4 r2 configuration file templates from github:  
+- to download a cfncluster config file template for ECCO v4 r2, type:  
 `sudo yum -y install git`  
 `git clone https://github.com/gaelforget/ECCO_v4_r2`  
-- to allow cfncluster to launch instances, type `cfncluster configure` and provide user information as prompted; cfncluster will store this infomation in **.cfncluster/config**.  
+`mkdir .cfncluster`
+`cp ECCO_v4_r2/example_scripts/config.step2 .cfncluster/config`
 
 ###step 2:  
-- to setup a cluster that can run ECCO v4 r2, edit **.cfncluster/config** in analogy with the patch provided by `diff ECCO_v4_r2/example_scripts/config.step1 ECCO_v4_r2/example_scripts/config.step2`  
-- **create the cluster (e.g., mycluster1) by typing** `cfncluster create mycluster1`
+- to allow cfncluster to launch instances, type `cfncluster configure` and provide user information as prompted; cfncluster will edit this infomation in the .cfncluster/config template.  
+- to **create the cluster (e.g., mycluster1)**, type `cfncluster create mycluster1`
 - this process launches the master and compute instances according to the .cfncluster/config specifications. Instances launched by cfncluster can be monitored via the AWS console.  
 - the cluster creation process may take 30 minutes or more. To verify that the process completed successfully, type `cfncluster status mycluster1` afterwards.
 
 ###step 3:
-- at this point, the micro-instance created in step 1 and used in step 2 to create the cluster can be stopped but it should not be terminated until the cluster has been deleted in step 7.
+- at this point, please **log out of the micro-instance** from step 1. It can be stopped but will be needed to delete the cluster in step 7.
 - to proceed with steps 4-6, **log into the master instance** as indicated in the AWS console. 
 
 ###step 4:
@@ -49,7 +51,7 @@ before proceeding any further, users are advised to learn about AWS pricing poli
 - setup\_rhel.sh (1) updates software if needed and (2) generates setup\_export.sh; setup\_export.sh (3) defines environment variables that MITgcm relies on; setup\_MITgcm.sh (4) installs MITgcm, (5) compiles and runs a short test, and (6) compiles the ECCO v4 r2 model setup.
 
 ###step 5:
-- to **submit ECCO v4 r2 to run on 96 vCPUs** via the SGE queuing system, type:  
+- to **run ECCO v4 r2 on 96 vCPUs** via the SGE queuing system, type:  
 `qsub -pe mpi 96 ./ECCO_v4_r2/example_scripts/run_eccov4r2.sh`
 - during the model run, cluster activity can be monitored using `qhost` and `qstat`. The model run normally proceeds from 1992 to 2011 and may take about 8 min to simulate 1 month. 
 - once the model run is complete, `qstat` should return an empty list and `tail run/STDOUT.0000` conclude with **PROGRAM MAIN: Execution ended Normally**.
