@@ -23,11 +23,11 @@ Before proceeding any further, users are advised to learn about AWS pricing poli
 
 ###Step 1:  
 - Using the AWS console, launch a micro-instance of the Amazon Linux AMI (e.g., ami-9be6f38c) and **log into this micro-instance**.
-- install software and set-up the [cfncluster software][] for ECCO v4 r2:
- `sudo yum -y install git`  
+- install software and set-up the [cfncluster software][] for ECCO v4 r2:  
+`sudo yum -y install git`  
 `git clone https://github.com/gaelforget/ECCO_v4_r2`  
 `source ./ECCO_v4_r2/example_scripts/setup_cfncluster.sh`  
-- Information provided by the user via `setup_cfncluster.sh` gets stored in the .cfncluster/config file which can then be used by cfncluster to launch instances.  
+- Information provided by the user gets stored in the .cfncluster/config file and will be used by cfncluster to launch the cluster of instances.  
 
 
 ###Step 2:  
@@ -44,7 +44,7 @@ Before proceeding any further, users are advised to learn about AWS pricing poli
 	`cd /shared`  
 	`git clone https://github.com/gaelforget/ECCO_v4_r2`  
 	`source ./ECCO_v4_r2/example_scripts/setup_MITgcm.sh`  
-- The MITgcm ECCO v4 r2 setup gets installed and compiled by `setup_MITgcm.sh`.
+- The above command installs and compiles the MITgcm ECCO v4 r2 setup.
 
 ###Step 5:
 - To **run ECCO v4 r2 on 96 vCPUs** via the SGE queuing system, type:  
