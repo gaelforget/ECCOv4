@@ -22,18 +22,16 @@ Before proceeding any further, users are advised to learn about AWS pricing poli
 ##Instructions
 
 ###Step 1:  
-- Using the AWS console, launch a micro-instance of the Amazon Linux AMI (ami-9be6f38c at time of writing); **log into this micro-instance** and install the [cfncluster software][]:  
-`sudo yum -y update`  
-`sudo pip install cfncluster`  
-- To download a cfncluster config file template for ECCO v4 r2, type:  
-`sudo yum -y install git`  
+- Using the AWS console, launch a micro-instance of the Amazon Linux AMI (e.g., ami-9be6f38c) and **log into this micro-instance**.
+- install software and set-up the [cfncluster software][] for ECCO v4 r2:
+ `sudo yum -y install git`  
 `git clone https://github.com/gaelforget/ECCO_v4_r2`  
-`mkdir .cfncluster`  
-`cp ECCO_v4_r2/example_scripts/config.step2 .cfncluster/config`
+`source ./ECCO_v4_r2/example_scripts/setup_cfncluster.sh`  
+- Information provided by the user via `setup_cfncluster.sh` gets stored in the .cfncluster/config file which can then be used by cfncluster to launch instances.  
+
 
 ###Step 2:  
-- To allow cfncluster to launch instances, type `cfncluster configure` and provide user information as prompted; cfncluster will edit this infomation in the .cfncluster/config template.  
-- To **create the cluster (e.g., mycluster1)**, type `cfncluster create mycluster1`
+- To **create the cluster** (e.g., mycluster1), type `cfncluster create mycluster1`
 - This process launches the master and compute instances according to the .cfncluster/config specifications. Instances launched by cfncluster can be monitored via the AWS console.  
 - The cluster creation process may take 30 minutes or more. To verify that the process completed successfully, type `cfncluster status mycluster1` afterwards.
 
@@ -45,10 +43,8 @@ Before proceeding any further, users are advised to learn about AWS pricing poli
 - To **prepare the ECCO v4 r2 model run**, execute the following commands:  
 	`cd /shared`  
 	`git clone https://github.com/gaelforget/ECCO_v4_r2`  
-	`source ./ECCO_v4_r2/example_scripts/setup_rhel.sh`  
-	`source ./setup_export.sh`  
 	`source ./ECCO_v4_r2/example_scripts/setup_MITgcm.sh`  
-- Here setup\_rhel.sh (1) updates software if needed and (2) generates setup\_export.sh; setup\_export.sh (3) defines environment variables that MITgcm relies on; setup\_MITgcm.sh (4) installs MITgcm, (5) compiles and runs a short test, and (6) compiles the ECCO v4 r2 model setup.
+- The MITgcm ECCO v4 r2 setup gets installed and compiled by `setup_MITgcm.sh`.
 
 ###Step 5:
 - To **run ECCO v4 r2 on 96 vCPUs** via the SGE queuing system, type:  
