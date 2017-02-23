@@ -1,6 +1,7 @@
 # Packages
  &PACKAGES
  useEXF             = .TRUE.,
+ useCAL             = .TRUE.,
  useGMRedi          = .TRUE.,
  useSeaice          = .TRUE.,
  useGGL90           = .TRUE.,
