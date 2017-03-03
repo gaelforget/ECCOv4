@@ -21,7 +21,6 @@
  snow_emissivity = 0.95,
 #
  exf_iprec         = 32,
- exf_yftype        = 'RL',
  useExfYearlyFields= .TRUE.,
  useExfCheckRange  = .FALSE.,
  &
