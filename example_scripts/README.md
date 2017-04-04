@@ -6,7 +6,7 @@
 [eccov4.pdf]: https://github.com/gaelforget/ECCO_v4_r2/blob/master/eccov4.pdf
 [This file]: https://github.com/gaelforget/ECCO_v4_r2/blob/master/example_scripts/README.md
 [ECCO v4 r2 github repository]: https://github.com/gaelforget/ECCO_v4_r2
-
+[gcmfaces]: https://github.com/gaelforget/gcmfaces
 
 [cfncluster documentation]: http://cfncluster.readthedocs.io/en/latest/
 [cfncluster]: https://aws.amazon.com/hpc/cfncluster/
@@ -54,7 +54,7 @@ Before proceeding any further, users are advised to learn about AWS pricing poli
 - Once the model run is complete, `qstat` should return an empty list and `tail run/STDOUT.0000` conclude with **PROGRAM MAIN: Execution ended Normally**.
 
 ###Step 6:
-- _post-processing remains to be documented_
+- The [gcmfaces][] Matlab toolbox provides extensive capabilities to analyze model output generated in step 5. It is freely available for download @ <https://github.com/gaelforget/gcmfaces/>.
 
 ###Step 7:
 - **To stop paying for your cluster, e.g. mycluster1, make sure delete it by typing** `cfncluster delete mycluster1` in the micro-instance from step 1.
