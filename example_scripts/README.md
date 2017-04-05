@@ -50,8 +50,8 @@ Before proceeding any further, users are advised to learn about AWS pricing poli
 ###Step 5:
 - To **run ECCO v4 r2 on 96 vCPUs** via the SGE queuing system, type:  
 `qsub -pe mpi 96 ./ECCO_v4_r2/example_scripts/run_eccov4r2.sh`
-- During the model run, cluster activity can be monitored using `qhost` and `qstat`. The model run normally proceeds from 1992 to 2011 and may take about 8 min to simulate 1 month. 
-- Once the model run is complete, `qstat` should return an empty list and `tail run/STDOUT.0000` conclude with **PROGRAM MAIN: Execution ended Normally**.
+- During the model run, cluster activity can be monitored using `qhost` and `qstat`. The model run normally proceeds from 1992 to 2011 and may take about 8 min to simulate 1 month. Progress can be monitored by typing `ls -1 /shared/run/diags/state_2d_set1.0*data` to display the list of completed monthly files at any given point in time.
+- Once the model run has completed, there should be 240 `state_2d_set1.0*data` files, `qstat` should return an empty list, and `tail run/STDOUT.0000` should conclude with **PROGRAM MAIN: Execution ended Normally**.
 
 ###Step 6:
 - The [gcmfaces][] Matlab toolbox provides extensive capabilities to analyze model output generated in step 5. It is freely available for download @ <https://github.com/gaelforget/gcmfaces/>.
