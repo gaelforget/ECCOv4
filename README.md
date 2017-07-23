@@ -1,6 +1,6 @@
 # ECCO v4 r2
 
-[This repository][] contains model settings ([code][], [input][]) and guidelines ([eccov4.pdf][]) which allow users to re-run ECCO v4 r2 using the [MITgcm][] and e.g. their on-premise cluster. An automated recipe for use with [Amazon Web Services' cfncluster][] is provided in [example_scipts][]. For user support, if needed, contact <mitgcm-support@mit.edu> or <ecco-support@mit.edu>. Citation for this repository: 
+[This repository][] contains model settings ([code][], [input][]) and guidelines ([eccov4.pdf][]) which allow users to re-run the ECCO v4 r2 ocean state estimate using the [MITgcm][] and e.g. their on-premise cluster. An automated recipe for use with [Amazon Web Services' cfncluster][] is also provided in [example_scipts][]. For user support, if needed, contact <mitgcm-support@mit.edu> or <ecco-support@mit.edu>. Citation for this repository: 
 
 [![DOI](https://zenodo.org/badge/76184688.svg)](https://zenodo.org/badge/latestdoi/76184688)
 
