@@ -13,10 +13,9 @@
 [MIT general circulation model]: http://mitgcm.org/
 [MITgcm]: http://mitgcm.org/
 [Amazon Web Services' cfncluster]: https://aws.amazon.com/hpc/cfncluster/
-[this dataverse (follow link)]: https://dataverse.harvard.edu/dataverse/ECCOv4r2
-[this ftp server (follow link)]: ftp://mit.ecco-group.org/ecco_for_las/version_4/release2/
+[the Harvard dataverse]: https://dataverse.harvard.edu/dataverse/ECCOv4r2
 
-**ECCO v4 r2** ([Estimating the Circulation and Climate of the Ocean][], version 4, release 2) is an ocean state estimate and solution of the MITgcm ([MIT general circulation model][]) that covers the period from 1992 to 2011 (Forget et al., 2016). It is a minor update of the original ECCO v4 solution (Forget et al., 2015) that benefits from a few additional corrections listed in Forget et al. (2016) and is easier to analyze and re-run. It is distributed directly via [this ftp server (follow link)][] and permanently archived via [this dataverse (follow link)][].
+**ECCO v4 r2** ([Estimating the Circulation and Climate of the Ocean][], version 4, release 2) is an ocean state estimate and solution of the MITgcm ([MIT general circulation model][]) that covers the period from 1992 to 2011 (Forget et al., 2016). It is a minor update of the original ECCO v4 solution (Forget et al., 2015) that benefits from a few additional corrections listed in Forget et al. (2016) and is easier to analyze and re-run. It is distributed directly via <http://ecco-group.org/products.htm> and permanently archived via [the Harvard dataverse][].
 
 
 
