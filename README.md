@@ -1,6 +1,6 @@
 # ECCO v4 r2
 
-[This repository][] contains model settings ([code][], [input][]) and guidelines ([eccov4.pdf][]) which allow users to re-run the ECCO v4 r2 ocean state estimate using the [MITgcm][] and e.g. their on-premise cluster. An automated recipe for use with [Amazon Web Services' cfncluster][] is also provided in [example_scipts][]. For user support, if needed, contact <mitgcm-support@mit.edu> or <ecco-support@mit.edu>. Citation for this repository: 
+[This repository][] contains model settings ([code][], [input][]) and guidelines ([eccov4.pdf][]) which allow users to re-run the ECCO v4 r2 ocean state estimate using the [MITgcm][] and e.g. their on-premise cluster. An automated recipe for use with [Amazon Web Services' cfncluster][] is also provided here in the [example_scripts][] directory. For user support, if needed, contact <mitgcm-support@mit.edu> or <ecco-support@mit.edu>. Citation for this repository: 
 
 [![DOI](https://zenodo.org/badge/76184688.svg)](https://zenodo.org/badge/latestdoi/76184688)
 
@@ -8,7 +8,7 @@
 [code]: https://github.com/gaelforget/ECCO_v4_r2/tree/master/code
 [input]: https://github.com/gaelforget/ECCO_v4_r2/tree/master/input
 [eccov4.pdf]: https://github.com/gaelforget/ECCO_v4_r2/blob/master/eccov4.pdf
-[example_scipts]: https://github.com/gaelforget/ECCO_v4_r2/tree/master/example_scripts
+[example_scripts]: https://github.com/gaelforget/ECCO_v4_r2/tree/master/example_scripts
 [Estimating the Circulation and Climate of the Ocean]: http://ecco-group.org/
 [MIT general circulation model]: http://mitgcm.org/
 [MITgcm]: http://mitgcm.org/
