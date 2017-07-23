@@ -1,7 +1,9 @@
 #Using cfncluster to run ECCO v4 r2
 
-[This file][] provides a recipe to run ECCO v4 r2 (Forget et al. 2015, 2016) using [MITgcm][] and [cfncluster][]. It relies on an AWS EBS volume snapshot for providing model intputs (snap-03a927d31811042e1 at the time of writing) and the [ECCO v4 r2 github repository][] for providing model setup and installation scripts (see [eccov4.pdf][] for additional documentation). For user support, if needed, contact <ecco-support@mit.edu> or <mitgcm-support@mit.edu>. As of 2017/01/25 the latest release of this repository is:
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.260042.svg)](https://doi.org/10.5281/zenodo.260042)
+[This file][] provides a recipe to run ECCO v4 r2 (Forget et al. 2015, 2016) using [MITgcm][] and [cfncluster][]. It relies on an AWS EBS volume snapshot for providing model intputs (snap-03a927d31811042e1 at the time of writing) and the [ECCO v4 r2 github repository][] for providing model setup and installation scripts (see [eccov4.pdf][] for additional documentation). For user support, if needed, contact <mitgcm-support@mit.edu> or <ecco-support@mit.edu>. Citation for this repository: 
+
+[![DOI](https://zenodo.org/badge/76184688.svg)](https://zenodo.org/badge/latestdoi/76184688)
+
 
 [eccov4.pdf]: https://github.com/gaelforget/ECCO_v4_r2/blob/master/eccov4.pdf
 [This file]: https://github.com/gaelforget/ECCO_v4_r2/blob/master/example_scripts/README.md
