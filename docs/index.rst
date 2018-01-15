@@ -10,7 +10,7 @@ Welcome to ECCO v4's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-
+   eccov4.rst
 
 Indices and tables
 ==================
