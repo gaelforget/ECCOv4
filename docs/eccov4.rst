@@ -1,11 +1,3 @@
-========================
-Downloading And Running
-ECCO Version 4 Release 2
-========================
-
-:Author: Gaël Forget
-Department of Earth, Atmospheric and Planetary Sciences
-Massachusetts Institute of Technology
 
 .. role:: math(raw)
    :format: html latex
@@ -24,7 +16,7 @@ Massachusetts Institute of Technology
    \vspace{1cm}
 
 Abstract
-========
+********
 
 ECCO v4 r2 (Estimating the Circulation and Climate of the Ocean, version
 4, release 2) is a state estimate covering the period from 1992 to 2011
@@ -57,7 +49,7 @@ additional model output or to setup their own model experiments.
 .. _downloads:
 
 Downloading ECCO Version 4
-==========================
+**************************
 
 This section provides directions to download the ECCO v4 r2 output (sec.
 `1.1 <#download-solution>`__), the underlying model setup (sec.
@@ -224,7 +216,7 @@ Other Resources
 .. _runs:
 
 Running ECCO Version 4
-======================
+**********************
 
 This section explains how the ECCO version 4 setup is used to re-run the
 release 2 state estimate over 1992–2011 (section
