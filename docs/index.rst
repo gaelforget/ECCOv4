@@ -6,17 +6,17 @@
 Welcome to ECCO v4's documentation!
 ===================================
 
+This documentation focuses on methods that are available to download
+and/or re-run ECCO v4 solutions. ECCO v4 r2 (Estimating the 
+Circulation and Climate of the Ocean, version 4, release 2)
+is used as a representative example before turning attention
+to other solutions.
+
 .. toctree::
    :maxdepth: 3
    :caption: Contents:
+   :numbered: 4
 
    eccov4.rst
-
-.. Indices and tables
-.. ==================
-
-.. * :ref:`genindex`
-.. * :ref:`modindex`
-.. * :ref:`search`
-
+   biblirefs.rst
 
