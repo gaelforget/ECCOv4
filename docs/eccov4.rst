@@ -20,10 +20,10 @@ Abstract
 
 ECCO v4 r2 (Estimating the Circulation and Climate of the Ocean, version
 4, release 2) is a state estimate covering the period from 1992 to 2011
-:raw-latex:`\citep{dspace-eccov4r2}`. This minor update of the original
-ECCO v4 solution :raw-latex:`\citep{gmd-8-3071-2015}` benefits from a
-few additional corrections
-:raw-latex:`\citep[listed in][]{dspace-eccov4r2}`, is provided with
+:cite:`dspace-eccov4r2`. This minor update of the original
+ECCO v4 solution :cite:`for-eta:15` benefits from a
+few additional corrections listed in 
+:cite:`dspace-eccov4r2`, is provided with
 additional model-data misfit and model budget output, and is easier to
 re-run. Section `1 <#downloads>`__ provides an installation guide and
 links to analysis tools [1]_. Section `2 <#runs>`__ provides simple
@@ -86,7 +86,7 @@ Linux or macOS for instance, a simple download method consists in using
 
 and similarly for the other directories. The ‘nctiles\_’ directory
 prefix indicates that contents are provided on the native LLC90 grid in
-the nctiles format :raw-latex:`\citep{gmd-8-3071-2015}` which can be
+the nctiles format :raw-latex:`\citep{for-eta:15}` which can be
 read in Matlab using the gcmfaces toolbox (see
 section \ `1.3 <#download-analysis>`__). Alternatively users can
 download interpolated fields, on a :math:`1/2\times1/2^\circ` grid in
@@ -97,7 +97,7 @@ MITgcm (sections `1.2 <#download-setup>`__ and
 directory <ftp://mit.ecco-group.org/ecco_for_las/version_4/release2/profiles/>`__
 contains the MITprof collections of collocated in situ and state
 estimate profiles in ‘netcdf’ format
-:raw-latex:`\citep{gmd-8-3071-2015}`.
+:raw-latex:`\citep{for-eta:15}`.
 
 .. _download-setup:
 
@@ -166,12 +166,12 @@ Matlab tools are provided to analyze model output from section
 `1.1 <#download-solution>`__ or section `2.1 <#eccov4-baseline>`__
 include:
 
--  | The gcmfaces Matlab toolbox :raw-latex:`\citep{gmd-8-3071-2015}`
+-  | The gcmfaces Matlab toolbox :raw-latex:`\citep{for-eta:15}`
      gets installed as explained in the
    | `gcmfaces.pdf <http://mitgcm.org/viewvc/*checkout*/MITgcm/MITgcm_contrib/gael/matlab_class/gcmfaces.pdf>`__
      documentation. It can be used, for example, to re-generate the
      ‘standard analysis’ for ECCO v4 r2 (i.e., the plots included in
-     :raw-latex:`\cite{dspace-eccov4r2}`) from the released model output
+     :cite:`dspace-eccov4r2`) from the released model output
      (sec. `1.1 <#download-solution>`__) or from the plain, binary,
      model output (sec. `2.1 <#eccov4-baseline>`__).
 
@@ -290,7 +290,7 @@ Fig. \ `[testreportecco] <#testreportecco>`__. The expected level of
 accuracy for 20-year re-runs, based upon an up-to-date MITgcm code and a
 standard computing environment, is reached when the displayed values are
 all :math:`\leq-3`. Interpretation of the testreport_ecco.m output is
-explained in detail in :raw-latex:`\cite{gmd-8-3071-2015}`.
+explained in detail in :raw-latex:`\cite{for-eta:15}`.
 
 The 20-year model run typically takes between 6 to 12 hours of
 wall-clock time on 96 cores using a modern computing environment. The
@@ -359,7 +359,7 @@ It is here assumed that MITgcm and ECCO v4 directories have been
 downloaded and organized as shown in
 Fig. \ `[mitgcmdirs] <#mitgcmdirs>`__. Users can then re-run the
 ‘baseline 1’ solution that more closely matches the original, release 1,
-solution of :raw-latex:`\cite{gmd-8-3071-2015}`. However, to re-run
+solution of :raw-latex:`\cite{for-eta:15}`. However, to re-run
 baseline 1 instead of release 2, a few modifications to the setup are
 needed: (a) download the corresponding forcing fields as follows:
 

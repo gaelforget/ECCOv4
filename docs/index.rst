@@ -12,11 +12,13 @@ Welcome to ECCO v4's documentation!
 
    eccov4.rst
 
-.. Indices and tables
-.. ==================
+.. _references:
 
-.. * :ref:`genindex`
-.. * :ref:`modindex`
-.. * :ref:`search`
+.. only:: html
 
+   References:
+   ***********
+
+.. bibliography:: bibli.bib
+   :all:
 
