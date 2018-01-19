@@ -79,6 +79,21 @@ pygments_style = 'sphinx'
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = False
 
+# number figures
+
+numfig_format = {'figure': 'Figure %s',
+                 'table': 'Table %s',
+                 'code-block': 'Code %s',
+                }
+
+numfig = True
+
+# number figures within section
+numfig_secnum_depth = 1
+
+#math_number_all = True
+
+numfig_format = {'figure': 'Figure %s', 'table': 'Table %s', 'code-block': 'Listing %s', 'section': 'Section %s'}
 
 # -- Options for HTML output ----------------------------------------------
 

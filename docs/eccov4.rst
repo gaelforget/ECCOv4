@@ -7,56 +7,28 @@
    :format: latex
 ..
 
-.. raw:: latex
-
-   \maketitle
-
-.. raw:: latex
-
-   \vspace{1cm}
-
-Abstract
-********
-
-ECCO v4 r2 (Estimating the Circulation and Climate of the Ocean, version
-4, release 2) is a state estimate covering the period from 1992 to 2011
-:cite:`dspace-eccov4r2`. This minor update of the original
-ECCO v4 solution :cite:`for-eta:15` benefits from a
-few additional corrections listed in 
+ECCO v4 r2 is a state estimate covering the period from 1992 to 2011
+:cite:`dspace-eccov4r2`. It is a minor update of the original
+ECCO v4 solution :cite:`for-eta:15` which benefits from a
+few additional corrections listed in
 :cite:`dspace-eccov4r2`, is provided with
 additional model-data misfit and model budget output, and is easier to
-re-run. Section `1 <#downloads>`__ provides an installation guide and
-links to analysis tools [1]_. Section `2 <#runs>`__ provides simple
+re-run. :numref:`downloads` provides an installation guide and
+links to analysis tools. :numref:`runs` provides simple
 instructions that allow users to re-run ECCO v4 r2 in order to generate
 additional model output or to setup their own model experiments.
-
-.. raw:: latex
-
-   \tableofcontents
-
-.. raw:: latex
-
-   \clearpage
-
-.. raw:: latex
-
-   \newpage
-
-.. raw:: latex
-
-   \linenumbers
 
 .. _downloads:
 
 Downloading ECCO Version 4
 **************************
 
-This section provides directions to download the ECCO v4 r2 output (sec.
-`1.1 <#download-solution>`__), the underlying model setup (sec.
-`1.2 <#download-setup>`__) that can be used to re-run ECCO v4 r2 (sec.
-`2.1 <#eccov4-baseline>`__), Matlab tools to analyze ECCO v4 r2 and
-other model output (sec. `1.3 <#download-analysis>`__), and a list of
-additional resources (sec. `1.4 <#other-resources>`__).
+This section provides directions to download the ECCO v4 r2 output (
+:numref:`download-solution`), the underlying model setup (
+:numref:`download-setup`) that can be used to re-run ECCO v4 r2 
+:numref:`eccov4-baseline`), Matlab tools to analyze ECCO v4 r2 and
+other model output (:numref:`download-analysis`), and a list of
+additional resources (:numref:`other-resources`).
 
 .. _download-solution:
 
@@ -88,12 +60,11 @@ and similarly for the other directories. The ‘nctiles\_’ directory
 prefix indicates that contents are provided on the native LLC90 grid in
 the nctiles format :raw-latex:`\citep{for-eta:15}` which can be
 read in Matlab using the gcmfaces toolbox (see
-section \ `1.3 <#download-analysis>`__). Alternatively users can
+:numref:`download-analysis`). Alternatively users can
 download interpolated fields, on a :math:`1/2\times1/2^\circ` grid in
 the netcdf format, from the ‘interp\_’ directories. The ‘input\_’
 directories contain binary and netcdf input files that can be read by
-MITgcm (sections `1.2 <#download-setup>`__ and
-`2.1 <#eccov4-baseline>`__). The `profiles
+MITgcm (:numref:`download-setup` and :numref:`eccov4-baseline`). The profiles 
 directory <ftp://mit.ecco-group.org/ecco_for_las/version_4/release2/profiles/>`__
 contains the MITprof collections of collocated in situ and state
 estimate profiles in ‘netcdf’ format
@@ -132,8 +103,8 @@ or by downloading a copy via `this
 webpage <http://mit.ecco-group.org/opendap/ecco_for_las/version_4/checkpoints/>`__
 (c66e_eccov4r2.tar at present time). Third, download the three-hourly
 forcing fields (96G; to re-run ECCO v4 r2 in
-section \ `2.1 <#eccov4-baseline>`__) and observational data (25G; to
-verify ECCO v4 r2 re-runs in section \ `2.1 <#eccov4-baseline>`__) model
+:numref:`eccov4-baseline`) and observational data (25G; to
+verify ECCO v4 r2 re-runs in :numref:`eccov4-baseline`) model
 inputs either from the `Harvard
 Dataverse <https://dataverse.harvard.edu/dataverse/ECCOv4r2inputs>`__
 permanent archive or from the `ECCO ftp
@@ -152,9 +123,9 @@ follows:
 
 Fig. \ `[mitgcmdirs] <#mitgcmdirs>`__ provides a graphical depiction of
 the downloaded directories organized as is expected in
-section \ `2.1 <#eccov4-baseline>`__. Experienced users should feel free
+:numref:`eccov4-baseline`. Experienced users should feel free
 to re-organize directories assuming that they are comfortable with
-modifying the section \ `2.1 <#eccov4-baseline>`__ and
+modifying the :numref:`eccov4-baseline` and
 Fig. \ `[baseline] <#baseline>`__ instructions accordingly.
 
 .. _download-analysis:
@@ -162,24 +133,26 @@ Fig. \ `[baseline] <#baseline>`__ instructions accordingly.
 Matlab Analysis Tools
 ---------------------
 
-Matlab tools are provided to analyze model output from section
-`1.1 <#download-solution>`__ or section `2.1 <#eccov4-baseline>`__
+Matlab tools are provided to analyze model output from 
+:numref:`download-solution` or :numref:`eccov4-baseline` 
 include:
 
--  | The gcmfaces Matlab toolbox :raw-latex:`\citep{for-eta:15}`
-     gets installed as explained in the
-   | `gcmfaces.pdf <http://mitgcm.org/viewvc/*checkout*/MITgcm/MITgcm_contrib/gael/matlab_class/gcmfaces.pdf>`__
-     documentation. It can be used, for example, to re-generate the
-     ‘standard analysis’ for ECCO v4 r2 (i.e., the plots included in
-     :cite:`dspace-eccov4r2`) from the released model output
-     (sec. `1.1 <#download-solution>`__) or from the plain, binary,
-     model output (sec. `2.1 <#eccov4-baseline>`__).
+-  The gcmfaces Matlab toolbox :raw-latex:`\citep{for-eta:15}`
+   gets installed as explained in the
+   `gcmfaces.pdf <http://mitgcm.org/viewvc/*checkout*/MITgcm/MITgcm_contrib/gael/matlab_class/gcmfaces.pdf>`__
+   documentation. It can be used, for example, to re-generate the
+   ‘standard analysis’ for ECCO v4 r2 (i.e., the plots included in
+   :cite:`dspace-eccov4r2`) from the released model output
+   (:numref:`download-solution`) or from the plain, binary,
+   model output (:numref:`eccov4-baseline`).
 
 -  The stand-alone
    `eccov4_lonlat.m <http://mit.ecco-group.org/opendap/ecco_for_las/version_4/release2/doc/eccov4_lonlat.m>`__
    Matlab script can be used to extract the lat-lon sector (i.e., array)
-   of the gridded output that spans the :math:`69^\circ`\ S to
-   :math:`56^\circ`\ N latitude range.
+   of the gridded output that spans the 69S to
+   56N latitude range.
+
+.. _other-resources:
 
 Other Resources
 ---------------
@@ -206,12 +179,12 @@ Other Resources
    server <http://mitgcm.org/public/using_cvs.html>`__ and provides
    basic Matlab and python functionalities.
 
--  | A series of three presentations offered in May 2016 during the ECCO
-     meeting at MIT provide an overview of the ECCO v4 r2 data sets and
-     applications are available via researchgate.net
-     (`doi.org/10.13140/RG.2.2.33361.12647 <http://doi.org/10.13140/RG.2.2.33361.12647>`__;
-     `doi.org/10.13140/RG.2.2.26650.24001 <http://doi.org/10.13140/RG.2.2.26650.24001>`__;
-   | `doi.org/10.13140/RG.2.2.36716.56967 <http://doi.org/10.13140/RG.2.2.36716.56967>`__).
+-  A series of three presentations offered in May 2016 during the ECCO
+   meeting at MIT provide an overview of the ECCO v4 r2 data sets and
+   applications are available via researchgate.net
+   (`doi.org/10.13140/RG.2.2.33361.12647 <http://doi.org/10.13140/RG.2.2.33361.12647>`__;
+   `doi.org/10.13140/RG.2.2.26650.24001 <http://doi.org/10.13140/RG.2.2.26650.24001>`__;
+   `doi.org/10.13140/RG.2.2.36716.56967 <http://doi.org/10.13140/RG.2.2.36716.56967>`__).
 
 .. _runs:
 
@@ -219,16 +192,14 @@ Running ECCO Version 4
 **********************
 
 This section explains how the ECCO version 4 setup is used to re-run the
-release 2 state estimate over 1992–2011 (section
-`2.1 <#eccov4-baseline>`__), other solutions (section
-`2.2 <#eccov4-other>`__), short regression tests (section
-`2.3 <#testreport>`__), or optimization tests (section
-`2.4 <#optim>`__). Running MITgcm typically requires a linux cluster
+release 2 state estimate over 1992–2011 (:numref:`eccov4-baseline`), 
+other solutions (:numref:`eccov4-other`), short regression tests (
+:numref:`testreport`), or optimization tests (:numref:`optim`). 
+Running MITgcm typically requires a linux cluster
 with the following software: gcc, gfortran (or alternatives), mpi (for
 parallel computation) and netcdf (for ‘pkg/profiles’). The `MITgcm
 howto <http://mitgcm.org/public/devel_HOWTO/devel_HOWTO.pdf>`__ and
-`MITgcm
-manual <http://mitgcm.org/public/r2_manual/latest/online_documents/manual.pdf>`__
+`MITgcm manual <http://mitgcm.org/public/r2_manual/latest/online_documents/manual.pdf>`__
 provide additional information.
 
 For users who may lack on-premise resources or IT support, an automated
@@ -346,10 +317,6 @@ memory requirements.
 
 [testreportecco]
 
-.. raw:: latex
-
-   \clearpage
-
 .. _eccov4-other:
 
 Other 20-Year Solutions
@@ -453,7 +420,7 @@ Other Short Tests
 -----------------
 
 Running the adjoint tests associated with
-section \ `2.3 <#testreport>`__ requires: (1) a
+:numref:`testreport` requires: (1) a
 `TAF <http://www.fastopt.de/>`__ license; (2) to soft link ‘code’ as
 ‘code_ad’ in
 `global_oce_cs32/ <http://mitgcm.org/viewvc/MITgcm/MITgcm_contrib/verification_other/global_oce_cs32/>`__
@@ -463,10 +430,6 @@ Users that hold a TAF license can then further proceed with the
 iterative optimization test case in
 `global_oce_cs32/input_OI/ <http://mitgcm.org/viewvc/MITgcm/MITgcm_contrib/verification_other/global_oce_cs32/input_OI>`__.
 Here the ocean model is replaced with a simple diffusion equation.
-
-.. raw:: latex
-
-   \smallskip
 
 The pre-requisites are:
 
@@ -488,10 +451,6 @@ The pre-requisites are:
 #. go to MITgcm/verification/global_oce_cs32/input_OI/ and type ‘source
    ./prepare_run’
 
-.. raw:: latex
-
-   \smallskip
-
 To match the reference results reported in `this
 file <http://mitgcm.org/viewvc/*checkout*/MITgcm/MITgcm_contrib/verification_other/global_oce_cs32/input_OI/README>`__,
 users should proceed as follows
@@ -506,13 +465,3 @@ users should proceed as follows
 
 #. type ‘grep fc costfunction000\*’ to display results
 
-.. raw:: latex
-
-   \clearpage
-
-.. raw:: latex
-
-   \newpage
-
-.. [1]
-   Throughout this document links are indicated by blue colored font.
