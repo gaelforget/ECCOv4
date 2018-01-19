@@ -18,14 +18,5 @@ to other solutions.
    :numbered: 4
 
    eccov4.rst
-
-.. _references:
-
-.. only:: html
-
-   References:
-   ***********
-
-.. bibliography:: bibli.bib
-   :all:
+   biblirefs.rst
 
