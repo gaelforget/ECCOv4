@@ -4,8 +4,6 @@
 
 This repository contains model settings ([code/](code/), [input/](input/)) and guidelines ([readthedocs](http://eccov4.readthedocs.io/en/latest/)) which allow users to re-run the ECCO v4 r2 ocean state estimate using the [MITgcm](http://mitgcm.org/) using on-premise cluster or using [Amazon Web Services' cfncluster][] via shell scripts provided in [example_scripts/](example_scripts/). If user support is needed, please contact <mitgcm-support@mit.edu> or <ecco-support@mit.edu>
 
-Test of relative link: 
-
 **Citation for this repository:**
 
 [![DOI](https://zenodo.org/badge/76184688.svg)](https://zenodo.org/badge/latestdoi/76184688)
