@@ -2,21 +2,16 @@
 
 **Content:**
 
-This repository contains model settings ([code][], [input][]) and guidelines ([docs][]) which allow users to re-run the ECCO v4 r2 ocean state estimate using the [MITgcm][] and e.g. their on-premise cluster. Scripts for use with [Amazon Web Services' cfncluster][] are also provided in [example_scripts][]. If user support is needed, please contact <mitgcm-support@mit.edu> or <ecco-support@mit.edu>
+This repository contains model settings ([code/](code/), [input/](input/)) and guidelines ([readthedocs](http://eccov4.readthedocs.io/en/latest/)) which allow users to re-run the ECCO v4 r2 ocean state estimate using the [MITgcm](http://mitgcm.org/) using on-premise cluster or using [Amazon Web Services' cfncluster][] via shell scripts provided in [example_scripts/](example_scripts/). If user support is needed, please contact <mitgcm-support@mit.edu> or <ecco-support@mit.edu>
 
-Test of relative link: [code](code/)
+Test of relative link: 
 
 **Citation for this repository:**
 
 [![DOI](https://zenodo.org/badge/76184688.svg)](https://zenodo.org/badge/latestdoi/76184688)
 
-[code]: https://github.com/gaelforget/ECCO_v4_r2/tree/master/code
-[input]: https://github.com/gaelforget/ECCO_v4_r2/tree/master/input
-[docs]: http://eccov4.readthedocs.io/en/latest/
-[example_scripts]: https://github.com/gaelforget/ECCO_v4_r2/tree/master/example_scripts
 [Estimating the Circulation and Climate of the Ocean]: http://ecco-group.org/
 [MIT general circulation model]: http://mitgcm.org/
-[MITgcm]: http://mitgcm.org/
 [Amazon Web Services' cfncluster]: https://aws.amazon.com/hpc/cfncluster/
 [the Harvard dataverse]: https://dataverse.harvard.edu/dataverse/ECCOv4r2
 [gcmfaces]: https://github.com/gaelforget/gcmfaces
