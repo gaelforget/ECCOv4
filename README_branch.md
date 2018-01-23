@@ -1,5 +1,5 @@
 
-# Instructions For This Branch:
+# Branch Specific Instructions:
 
 ### 1. To Run The Model On Pleiades Super-Computer:
 
@@ -48,9 +48,9 @@ ln -s $forcing_gud ./forcing
 
 ~~~~
 
-### 1'. To Run The Model On A different Cluster:
+### 1.1 To Run The Model On A different Cluster:
 
-Edit instructions that involve `linux_amd64_ifort+mpi_ice_nas`, `module`, and `mpiexec` as needed.
+Edit the above instructions that involve `linux_amd64_ifort+mpi_ice_nas`, `module`, or `mpiexec` as needed.
 
 ### 2. To Plot Model Results:
 
