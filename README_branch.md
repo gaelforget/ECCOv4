@@ -1,16 +1,62 @@
 
-**List Of Instructions For This Branch:**
+# Instructions For This Branch:
+
+### 1. To Run The Model On Pleiades Super-Computer:
 
 ~~~~
 git clone --branch cube92 git://gud.mit.edu/gud-dev
 git clone --branch llc90drwn3 https://github.com/
+
 mv gud-dev MITgcm
 mkdir MITgcm/mysetups
 mv ECCO_v4_r2/ MITgcm/mysetups/llc90drwn3
-cd MITgcm/mysetups/llc90drwn3
+
+cd MITgcm/
+cp -p tools/build_options/linux_amd64_ifort+mpi_ice_nas .
+#uncomment the two 'mcmodel=medium' lines in linux_amd64_ifort+mpi_ice_nas
+module load comp-intel/2016.2.181
+module load mpi-sgi/mpt.2.14r19
+
+cd mysetups/llc90drwn3/
+#either soft link the following directories to this location: 
+#    inputs_baseline2, inputs_drwn3, era-interim, and forcing
+#or edit the following path variables accordingly:
+setenv inputs_baseline2 $PWD"/inputs_baseline2/"
+setenv inputs_drwn3 $PWD"/inputs_drwn3/"
+setenv forcing_era $PWD"/era-interim/"
+setenv forcing_gud $PWD"/forcing/"
+
+cd build/
+../../../tools/genmake2 -mods ../code -of ../../../linux_amd64_ifort+mpi_ice_nas
+make depend
+make -j9 > make.log
+cd ..
+
+mkdir run
+cd run
+cp -p ../build/mitgcmuv .
+ln -s ../input/* .
+ln -s $inputs_drwn3/* .
+ln -s $inputs_baseline2/input_init/* .
+ln -s $inputs_baseline2/input_insitu/* .
+ln -s $inputs_baseline2/input_other/* .
+ln -s $forcing_era ./era-interim
+ln -s $forcing_gud ./forcing
+
+#execute the following command via adequate submission script:
+#mpiexec -np 96 dplace -s1 ./mitgcmuv
+
 ~~~~
 
-**For More General Documentation, See:**
+### 1'. To Run The Model On A different Cluster:
 
-* [upstream repository](https://github.com/gaelforget/ECCO_v4_r2/ "ECCO_v4_r2/")
-* [upstream documentation](https://eccov4.readthedocs.io/en/latest/ "eccov4.readthedocs.io")
+Edit instructions that involve `linux_amd64_ifort+mpi_ice_nas`, `module`, and `mpiexec` as needed.
+
+### 2. To Plot Model Results:
+
+To be added ...
+
+# For Additional Documentation, See:
+
+* [upstream ECCOv4 repository](https://github.com/gaelforget/ECCO_v4_r2/ "ECCO_v4_r2/")
+* [upstream ECCOv4 documentation](https://eccov4.readthedocs.io/en/latest/ "eccov4.readthedocs.io")
