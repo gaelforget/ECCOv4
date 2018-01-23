@@ -31,7 +31,7 @@
  useRealFreshWaterFlux=.TRUE.,
 # balanceThetaClimRelax=.TRUE.,
  balanceSaltClimRelax=.TRUE.,
-# balanceEmPmR=.TRUE.,
+ balanceEmPmR=.TRUE.,
 # balanceQnet=.TRUE.,
  allowFreezing=.FALSE.,
 ### hFacInf=0.2,
@@ -76,8 +76,8 @@
  nIter0=1,
 #2 lev2 for testing:
 #nTimeSteps=8,
-#20y:
- nTimeSteps=175295,
+#1y:
+ nTimeSteps=8760,
 #60 years
 #nTimeSteps=525985,
 #
