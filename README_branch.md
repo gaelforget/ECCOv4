@@ -5,7 +5,7 @@
 
 ~~~~
 git clone --branch cube92 git://gud.mit.edu/gud-dev
-git clone --branch llc90drwn3 https://github.com/hubgcm/ECCO_v4_r2
+git clone --branch llc90drwn3 https://github.com/gaelforget/ECCO_v4_r2
 
 mv gud-dev MITgcm
 mkdir MITgcm/mysetups
@@ -55,7 +55,7 @@ Edit the above instructions that involve `linux_amd64_ifort+mpi_ice_nas`, `modul
 Download gcmfaces toolbox, start Matlab, and execute `example_branch` as shown hereafter:
 
 ~~~~
-git clone https://github.com/hubgcm/gcmfaces
+git clone https://github.com/gaelforget/gcmfaces
 matlab -nodesktop -nosplash
 >> p = genpath('gcmfaces/'); addpath(p); %this activates the toolbox
 >> addpath ../example_scripts/; %expected path to example_branch.m
