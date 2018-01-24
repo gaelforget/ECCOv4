@@ -77,7 +77,7 @@
 #2 lev2 for testing:
 #nTimeSteps=8,
 #1y:
- nTimeSteps=8760,
+ nTimeSteps=8712,
 #60 years
 #nTimeSteps=525985,
 #

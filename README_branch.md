@@ -14,8 +14,7 @@ mv ECCO_v4_r2/ MITgcm/mysetups/llc90drwn3
 cd MITgcm/
 cp -p tools/build_options/linux_amd64_ifort+mpi_ice_nas .
 #uncomment the two 'mcmodel=medium' lines in linux_amd64_ifort+mpi_ice_nas
-module load comp-intel/2016.2.181
-module load mpi-sgi/mpt.2.14r19
+#execute the 'module load ...' line from linux_amd64_ifort+mpi_ice_nas
 
 cd mysetups/llc90drwn3/
 #either soft link the following directories to this location: 
