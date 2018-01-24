@@ -5,7 +5,7 @@
 
 ~~~~
 git clone --branch cube92 git://gud.mit.edu/gud-dev
-git clone --branch llc90drwn3 https://github.com/
+git clone --branch llc90drwn3 https://github.com/hubgcm/ECCO_v4_r2
 
 mv gud-dev MITgcm
 mkdir MITgcm/mysetups
@@ -44,8 +44,7 @@ ln -s $forcing_era ./era-interim
 ln -s $forcing_gud ./forcing
 
 #execute the following command via adequate submission script:
-#mpiexec -np 96 dplace -s1 ./mitgcmuv
-
+mpiexec -np 96 dplace -s1 ./mitgcmuv
 ~~~~
 
 ### 1.1 To Run The Model On A different Cluster:
@@ -54,7 +53,15 @@ Edit the above instructions that involve `linux_amd64_ifort+mpi_ice_nas`, `modul
 
 ### 2. To Plot Model Results:
 
-To be added ...
+Download gcmfaces toolbox, start Matlab, and execute `example_branch` as shown hereafter:
+
+~~~~
+git clone https://github.com/hubgcm/gcmfaces
+matlab -nodesktop -nosplash
+>> p = genpath('gcmfaces/'); addpath(p);
+>> addpath ../example_scripts/; 
+>> example_branch;
+~~~~
 
 # For Additional Documentation, See:
 
