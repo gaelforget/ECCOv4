@@ -1,0 +1,4 @@
+ &GCHEM_PARM01
+  useGUD=.TRUE.,
+  nsubtime=1,
+ /

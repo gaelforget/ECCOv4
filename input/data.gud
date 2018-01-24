@@ -1,0 +1,205 @@
+#######################
+ &GUD_FORCING_PARAMS
+ gud_chlInitBalanced= F,
+ ironFile='forcing/iron/Mahowald_soluble_fedust_current_kgFem2s.R4_144x96x12.bin',
+ ironPeriod= -12.,
+# 1 kg Fe/m2/s is 1E6/56 mmol Fe/m2/s
+ gud_inscal_iron= 17857.142857142858,
+#
+ OASIM_EdFile( 1)='forcing/oasim/mod5cov1f2linOMTO3d/edsEd01',
+ OASIM_EdFile( 2)='forcing/oasim/mod5cov1f2linOMTO3d/edsEd02',
+ OASIM_EdFile( 3)='forcing/oasim/mod5cov1f2linOMTO3d/edsEd03',
+ OASIM_EdFile( 4)='forcing/oasim/mod5cov1f2linOMTO3d/edsEd04',
+ OASIM_EdFile( 5)='forcing/oasim/mod5cov1f2linOMTO3d/edsEd05',
+ OASIM_EdFile( 6)='forcing/oasim/mod5cov1f2linOMTO3d/edsEd06',
+ OASIM_EdFile( 7)='forcing/oasim/mod5cov1f2linOMTO3d/edsEd07',
+ OASIM_EdFile( 8)='forcing/oasim/mod5cov1f2linOMTO3d/edsEd08',
+ OASIM_EdFile( 9)='forcing/oasim/mod5cov1f2linOMTO3d/edsEd09',
+ OASIM_EdFile(10)='forcing/oasim/mod5cov1f2linOMTO3d/edsEd10',
+ OASIM_EdFile(11)='forcing/oasim/mod5cov1f2linOMTO3d/edsEd11',
+ OASIM_EdFile(12)='forcing/oasim/mod5cov1f2linOMTO3d/edsEd12',
+ OASIM_EdFile(13)='forcing/oasim/mod5cov1f2linOMTO3d/edsEd13',
+ OASIM_EsFile( 1)='forcing/oasim/mod5cov1f2linOMTO3d/edsEs01',
+ OASIM_EsFile( 2)='forcing/oasim/mod5cov1f2linOMTO3d/edsEs02',
+ OASIM_EsFile( 3)='forcing/oasim/mod5cov1f2linOMTO3d/edsEs03',
+ OASIM_EsFile( 4)='forcing/oasim/mod5cov1f2linOMTO3d/edsEs04',
+ OASIM_EsFile( 5)='forcing/oasim/mod5cov1f2linOMTO3d/edsEs05',
+ OASIM_EsFile( 6)='forcing/oasim/mod5cov1f2linOMTO3d/edsEs06',
+ OASIM_EsFile( 7)='forcing/oasim/mod5cov1f2linOMTO3d/edsEs07',
+ OASIM_EsFile( 8)='forcing/oasim/mod5cov1f2linOMTO3d/edsEs08',
+ OASIM_EsFile( 9)='forcing/oasim/mod5cov1f2linOMTO3d/edsEs09',
+ OASIM_EsFile(10)='forcing/oasim/mod5cov1f2linOMTO3d/edsEs10',
+ OASIM_EsFile(11)='forcing/oasim/mod5cov1f2linOMTO3d/edsEs11',
+ OASIM_EsFile(12)='forcing/oasim/mod5cov1f2linOMTO3d/edsEs12',
+ OASIM_EsFile(13)='forcing/oasim/mod5cov1f2linOMTO3d/edsEs13',
+ OASIMPeriod= -1,
+#
+ windFile = 'forcing/jra55/jra55_wspeed',
+ windstartdate1   = 19790101,
+ windstartdate2   = 000000,
+ windperiod       = 21600.0,
+#
+ icefile = 'forcing/offline/EmPmR55/SIarea',
+ icestartdate1 = 19790101,
+ icestartdate2 = 120000,
+ iceperiod     = 86400.0,
+ /
+ &GUD_INTERP_PARAMS
+ OASIM_lon0=-179.5,
+ OASIM_lat0=-89.5,
+ OASIM_nlon=360,
+ OASIM_nlat=180,
+ OASIM_lon_inc=1.,
+ OASIM_lat_inc=179*1.,
+#
+ iron_lon0=0.,
+ iron_lat0=-90.,
+ iron_nlon=144,
+ iron_nlat=96,
+ iron_lon_inc=2.5,
+ iron_lat_inc=95*1.8947368421052602,
+#
+ wind_lon0        = 0.0D0,
+ wind_lon_inc     = 1.125D0,
+ wind_lat0        = -89.142D0,
+ wind_lat_inc     = 1.113D0, 1.118D0, 1.12D0, 1.121D0,
+                     151*1.12145695364238D0,
+                     1.121D0, 1.12D0, 1.118D0, 1.113D0,
+ wind_nlon        = 320,
+ wind_nlat        = 160,
+#
+ ice_interpMethod = 0,
+ /
+########################
+ &GUD_PARAMS
+ diaz_ini_fac= 0.1,
+ idebug=271,
+ jdebug=63,
+ gud_seed= 56,
+ gud_read_phos= F,
+ tempCoeffArr= 0.8,
+ PARmin= 0.1,
+ alpfe= 1.0,
+ freefemax = .1E-3,
+ depthfesed= 7000.,
+ scav_rat= 1.73611111111111111111E-7,
+ kdoc=  3.8580246913580247E-7,  ! 1/30day
+ kdop=  3.8580246913580247E-7,  ! 1/30day
+ kdon=  3.8580246913580247E-7,  ! 1/30day
+ kdofe= 3.8580246913580247E-7,  ! 1/30day
+ kPOC=  3.8580246913580247E-7,  ! 1/30day
+ kPOP=  3.8580246913580247E-7,  ! 1/30day
+ kPON=  3.8580246913580247E-7,  ! 1/30day
+ kPOFe= 3.8580246913580247E-7,  ! 1/30day
+ kPOSi= 7.7160493827160493E-8,  ! 1/150day
+ phygrazmin= 120E-10,
+ hollexp = 2.E0,
+ gud_atmos_pCO2= 360E-6,
+ /
+########################
+ &GUD_RADTRANS_PARAMS
+ gud_selectSolz=1,
+ gud_waterabsorbFile='forcing/optics/optics_water_Aug2014_bandave25.txt',
+ gud_phytoabsorbFile='forcing/optics/optics_phyto_10_bandave25_newsize5_diffsyn_zoo.txt',
+ gud_particleabsorbFile='forcing/optics/optics_detritus_8_sameas4_bandave25.txt',
+ gud_radtrans_kmax=22,
+ gud_waveband_edges=400,412.5,437.5,462.5,487.5,512.5,537.5,562.5,587.5,612.5,637.5,662.5,687.5,700,
+ gud_waveband_centers=400,425,450,475,500,525,550,575,600,625,650,675,700,
+ gud_Sdom=0.0145000,
+ gud_aCDOM_fac = 0.30,
+ gud_part_size_P = 1.e-17,
+ gud_allomSpectra= T,
+ gud_absorpSlope= -0.075,
+ gud_bbbSlope=    -1.458,
+ gud_scatSwitchSizeLog= 2.860959e-01, 2.923177e-01, 2.983251e-01, 3.140574e-01, 3.261153e-01,
+                        3.440134e-01, 3.577670e-01, 3.618763e-01, 3.695100e-01, 3.718916e-01,
+                        3.706202e-01, 3.640583e-01, 3.682107e-01,
+ gud_scatSlopeSmall= 4.185404e+00, 4.208007e+00, 4.261307e+00, 4.302451e+00, 4.341968e+00,
+                     4.373109e+00, 4.392320e+00, 4.416705e+00, 4.434653e+00, 4.454953e+00,
+                     4.479809e+00, 4.507577e+00, 4.544071e+00,
+ gud_scatSlopeLarge= 1.723153e+00, 1.718186e+00, 1.699666e+00, 1.687533e+00, 1.710736e+00,
+                     1.732242e+00, 1.763117e+00, 1.811451e+00, 1.834619e+00, 1.863836e+00,
+                     1.897289e+00, 1.861866e+00, 1.907367e+00,
+ /
+
+ &GUD_CDOM_PARAMS
+  fracCDOM = 0.02,
+  cdomdegrd= 3.8580e-08,
+  CDOMbleach = 3.0000e-06,
+  PARCDOM = 70.,
+  R_NP_CDOM  = 16.,
+  R_FeP_CDOM = 1.e-3,
+  R_CP_CDOM  = 120.,
+  CDOMcoeff = 21.,
+ /
+########################
+ &GUD_RANDOM_PARAMS
+ /
+########################
+ &GUD_TRAIT_PARAMS
+ grp_names= 'Pro', 'Syn', 'PicoEuk', 'Cocco', 'Diazo', 'Tricho', 'Diatom', 'Dino', 'Zoo',
+#
+#                        P  S  s  C  z, T,  D   l  Z
+ grp_nplank(:)=          1, 1, 2, 5, 4, 1, 11, 10, 16,
+ grp_photo(:)=           1, 1, 1, 1, 1, 1,  1,  1, 0,
+ grp_pred(:)=            0, 0, 0, 0, 0, 0,  0,  1, 1
+ grp_prey(:)=            1, 1, 1, 1, 1, 1,  1,  1, 1,
+ grp_hasSi(:)=           0, 0, 0, 0, 0, 0,  1,  0, 0,
+ grp_hasPIC(:)=          0, 0, 0, 1, 0, 0,  0,  0, 0,
+ grp_DIAZO(:)=           0, 0, 0, 0, 1, 1,  0,  0, 0,
+ grp_useNH4(:)=          1, 1, 1, 1, 1, 1,  1,  1, 0,
+ grp_useNO2(:)=          1, 1, 1, 1, 1, 1,  1,  1, 0,
+ grp_useNO3(:)=          1, 1, 1, 1, 1, 1,  1,  1, 0,
+ grp_combNO(:)=          1, 1, 1, 1, 1, 1,  1,  1, 0,
+ grp_tempMort(:)=        0, 0, 0, 0, 0, 0, 0, 0,  0, 
+ grp_tempMort2(:)=       0, 0, 0, 0, 0, 0, 0, 0,  0,
+ grp_aptype(:)=          4, 2, 1, 6, 8, 7, 5, 9, 11,
+#
+ grp_Xmin(:)= 8*120E-20,
+
+ grp_mqyield(:)= 8*4E-5,
+ grp_chl2cmax(:)=  6*.2, .3, .2,
+ grp_acclimtimescl(:)= 8*5.7870370370370370E-6,
+ logvolbase= -.9000,
+ logvolinc= .513,
+ logvol0ind(:)= 1, 2, 3, 5, 5, 9, 5, 7, 7,
+ a_biosink(:)= 8*6.951416635391563E-7, 0.,  ! .05*dm**.85
+ b_biosink(:)= 8*.2833333333333333, 0.,
+ a_vmax_DIC(1)= 0.90,
+ a_vmax_DIC(2)= 0.90,
+ a_vmax_DIC(3)= 0.90,
+ a_vmax_DIC(4)= 1.4,
+ a_vmax_DIC(5)= 0.95,
+ a_vmax_DIC(6)= 0.95,
+ a_vmax_DIC(7)= 3.9,
+ a_vmax_DIC(8)= 1.7,
+
+ a_vmax_DIC_denom(:)= 8*86400.,
+ b_vmax_DIC(:)= 0.08, 0.08, 0.08, -0.08, -0.08, -0.08,-0.08, -0.08, 0., 
+#
+ a_qmin_p = 8*0.005, 0.008,
+ a_qmax_p = 8*0.02,  0.01,
+#
+ gud_effective_ksat= T,
+ gud_select_kn_allom= 2,
+#
+# grp_ExportFracMort(:)= .1, .1, .1, .2, .4, .4, .4, .6
+# grp_ExportFracMort2(:)= .1, .1, .1, .2, .4, .4, .4, .6
+ grp_ExportFracPreyPred(1:8,9)= 8*.8,
+ grp_R_ChlC(9)= 0.,
+ a_graz(9)= 3.4722000000000000E-05,  ! prowe values
+ b_graz(9)= -0.16,
+#
+ grp_mort(:)= 8*6e-07, 2e-7  ! 1/7days, 1/50days
+ grp_mort2(:)= 8*6.e-7, 8.e-7,  ! 16*.6/120/day
+ grp_tempcoeff2= 8*.0003,
+ grp_R_PC(:)= 9*0.008333333333333333,
+ grp_R_FeC(:)= 4*0.008333333333333333E-3, 2*0.03333333333333333E-3, 2*0.008333333333333333E-3, 1*0.001333333333333333E-3
+ grp_R_NC(:)= 4*0.13333333333333333, 2*0.3333333333333333, 3*0.13333333333333333,
+ grp_R_SiC(:)= 6*0., 0.13333333333333333, 2*0.,
+ grp_R_PICPOC(:)= 3*0., .8, 5*0.,
+ a_kg(:)= 8*1.5, 1*1.5,
+ b_kg(:)= 9*0,
+#
+ grp_ass_eff(:,:)=81*0.5,
+ /

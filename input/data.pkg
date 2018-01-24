@@ -12,4 +12,6 @@
  useCTRL            = .TRUE.,
  useProfiles        = .TRUE.,
  useSMOOTH          = .TRUE.,
+ useGCHEM           = .TRUE.,
+ usePTRACERS        = .TRUE.,
  &
