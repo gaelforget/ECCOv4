@@ -19,10 +19,10 @@ module load mpi-sgi/mpt.2.14r19
 
 cd mysetups/llc90drwn3/
 #either soft link the following directories to this location: 
-#    inputs_baseline2, inputs_drwn3, era-interim, and forcing
+#    inputs_baseline2, inputs_llc90drwn3, era-interim, and forcing
 #or edit the following path variables accordingly:
 setenv inputs_baseline2 $PWD"/inputs_baseline2/"
-setenv inputs_drwn3 $PWD"/inputs_drwn3/"
+setenv inputs_llc90drwn3 $PWD"/inputs_llc90drwn3/"
 setenv forcing_era $PWD"/era-interim/"
 setenv forcing_gud $PWD"/forcing/"
 
@@ -36,7 +36,7 @@ mkdir run
 cd run
 cp -p ../build/mitgcmuv .
 ln -s ../input/* .
-ln -s $inputs_drwn3/* .
+ln -s $inputs_llc90drwn3/* .
 ln -s $inputs_baseline2/input_init/* .
 ln -s $inputs_baseline2/input_insitu/* .
 ln -s $inputs_baseline2/input_other/* .
@@ -58,12 +58,15 @@ Download gcmfaces toolbox, start Matlab, and execute `example_branch` as shown h
 ~~~~
 git clone https://github.com/hubgcm/gcmfaces
 matlab -nodesktop -nosplash
->> p = genpath('gcmfaces/'); addpath(p);
->> addpath ../example_scripts/; 
->> example_branch;
+>> p = genpath('gcmfaces/'); addpath(p); %this activates the toolbox
+>> addpath ../example_scripts/; %expected path to example_branch.m
+>> help example_branch; %this provides documentation
+>> example_branch; %this generates a few pictures
 ~~~~
 
 # For Additional Documentation, See:
 
-* [upstream ECCOv4 repository](https://github.com/gaelforget/ECCO_v4_r2/ "ECCO_v4_r2/")
-* [upstream ECCOv4 documentation](https://eccov4.readthedocs.io/en/latest/ "eccov4.readthedocs.io")
+* [upstream ECCOv4 setup repository](https://github.com/gaelforget/ECCO_v4_r2/ "ECCO_v4_r2/")
+* [upstream ECCOv4 setup documentation](https://eccov4.readthedocs.io/en/latest/ "eccov4.readthedocs.io")
+* [MIT Darwin Project documentation](http://darwinproject.mit.edu/research/ "darwinproject.mit.edu")
+
