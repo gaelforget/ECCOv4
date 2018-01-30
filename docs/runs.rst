@@ -99,7 +99,9 @@ Top: instructions to gauge the accuracy of a re-run of ECCO v4 r2 :cite:`dspace-
 Re-Run Other Solutions
 ----------------------
 
-It is here assumed that `MITgcm` and ECCO v4 directories have been downloaded and organized as shown in :ref:`mitgcmdirs`. Users can then re-run the `baseline 1` solution that more closely matches the original, `release 1`, solution of :cite:`for-eta:15`. However, to re-run `baseline 1` instead of `release 2`, a few modifications to the setup are needed: (a) download the corresponding forcing fields as follows:
+It is here assumed that `MITgcm` and ECCO v4 directories have been downloaded and organized as shown in :ref:`mitgcmdirs`. 
+
+Users can then re-run the `baseline 1` solution that more closely matches the original, `release 1`, solution of :cite:`for-eta:15`. However, to re-run `baseline 1` instead of `release 2`, a few modifications to the setup are needed: (a) download the corresponding forcing fields as follows:
 
 ::
 
