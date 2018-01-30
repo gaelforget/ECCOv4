@@ -17,6 +17,8 @@ to other solutions.
    :caption: Contents:
    :numbered: 4
 
-   eccov4.rst
+   overview.rst
+   downloads.rst
+   runs.rst
    biblirefs.rst
 
