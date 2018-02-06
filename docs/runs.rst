@@ -52,7 +52,7 @@ Other compiler options, besides ``linux_amd64_gfortran``, are provided by the `M
 
 .. rubric:: Verify Results Accuracy
 
-``testreport_ecco.m`` provides a means to evaluate the accuracy of a re-run :cite:`for-eta:15`. To this end, open Matlab or Octave and proceed as follows:
+``testreport_ecco.m`` provides a means to evaluate the accuracy of a solution re-run :cite:`for-eta:15`. To this end, open Matlab or Octave and proceed as follows:
 
 ::
 
@@ -65,7 +65,7 @@ Other compiler options, besides ``linux_amd64_gfortran``, are provided by the `M
     addpath results_itXX;%add necessary .m and .mat files to path
     mytest=testreport_ecco('run/');%compute tests and display results
 
-When using the up-to-date copy of MITgcm and a standard computing environment, the expected level of accuracy is reached when all reported values are below -3 :cite:`for-eta:15`. For example:
+When using an up-to-date copy of MITgcm and a standard computing environment, the expected level of accuracy is reached when all reported values are below -3 :cite:`for-eta:15`. For example:
 
 ::
 
@@ -81,29 +81,22 @@ Additional accuracy tests can be carried out for, e.g., meridional transports us
 Re-Run Other Solutions
 ----------------------
 
-It is here assumed that `MITgcm` and ECCO v4 directories have been downloaded and organized as shown in :ref:`mitgcmdirs`. 
+Reproducing the latest ECCO version 4 `release 3` solution, which covers 1992 to 2015, can be done by following `O. Wang's directions <ftp://ecco.jpl.nasa.gov/Version4/Release3/doc/ECCOv4r3_reproduction.pdf>`__. Reproducing the older `baseline 1` solution, which closely matches the original `release 1` solution of :cite:`for-eta:15`, can be done by modifying the `release 2` case as follows:
 
-Users can then re-run the `baseline 1` solution that more closely matches the original, `release 1`, solution of :cite:`for-eta:15`. However, to re-run `baseline 1` instead of `release 2`, a few modifications to the setup are needed: (a) download the corresponding forcing fields as follows:
+1. download `the baseline 1 forcing <ftp://mit.ecco-group.org/ecco_for_las/version_4/release1/forcing_baseline1/>`__.
 
-::
+2. recompile the modeli after defining ``ALLOW_KAPGM_CONTROL_OLD`` and ``ALLOW_KAPREDI_CONTROL_OLD`` in ``code/GMREDI_OPTIONS.h`` as well as ``ALLOW_AUTODIFF_INIT_OLD`` in ``code/AUTODIFF_OPTIONS.h``.
 
-    wget --recursive ftp://mit.ecco-group.org/ecco_for_las/version_4/release1/forcing_baseline1/
+3. before running the model: copy ``input_itXX/data`` and ``data.exf`` over ``input/data`` and ``data.exf``. 
 
-(b) before compiling the model: define ``ALLOW_KAPGM_CONTROL_OLD`` and
-``ALLOW_KAPREDI_CONTROL_OLD`` in ``code/GMREDI_OPTIONS.h``;
-define ``ALLOW_AUTODIFF_INIT_OLD`` in
-``code/AUTODIFF_OPTIONS.h``; (c) before running the model: copy
-``input_itXX/data`` and ``data.exf`` over ``input/data``
-and ``data.exf``. 
-Users who may want to reproduce `release 1` even more precisely than
-`baseline 1` does should contact ecco-support@mit.edu to obtain
-additional model inputs.
+Users who may hold a `TAF <http://www.fastopt.de/>`__ license can also: 
 
-Users holding a `TAF <http://www.fastopt.de/>`__ license can also: 
-(a) compile the adjoint by replacing ``make -j 4`` with ``make adall -j 4``
-in :ref:`baseline`; (b) activate the adjoint by setting
-``useAUTODIFF=.TRUE.,`` in ``data.pkg``; (c) run the adjoint by replacing
-``mitgcmuv`` with ``mitgcmuv_ad`` in :ref:`baseline`.
+1. compile the adjoint by replacing ``make -j 4`` with ``make adall -j 4`` in :ref:`baseline`
+
+2. activate the adjoint by setting ``useAUTODIFF=.TRUE.,`` in ``input/data.pkg`` 
+
+3. run the adjoint by replacing ``mitgcmuv`` with ``mitgcmuv_ad`` in :ref:`baseline`.
+
 
 .. _testreport:
 
