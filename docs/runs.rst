@@ -4,50 +4,26 @@
 Running ECCO Version 4
 **********************
 
-This section explains how the ECCO version 4 setup is used to re-run the release 2 state estimate over 1992–2011 (:numref:`eccov4-baseline`), other solutions (:numref:`eccov4-other`), short regression tests (:numref:`testreport`), or optimization tests (:numref:`optim`). `MITgcm` typically runs on linux clusters that provide the `gcc` and `gfortran` compilers (or alternatives), `mpi` libraries (for parallel computation) and `netcdf` libraries (e.g., for the `profiles` package) as explained in the `MITgcm howto and manual <http://mitgcm.org/public/docs.html>`__. 
+This section first explains how the ECCO version 4 setup can be used to re-run the ECCO v4 r2 solution for 1992–2011 (:numref:`eccov4-baseline`). Other state estimate solutions (:numref:`eccov4-other`), short regression tests (:numref:`testreport`), and optimization tests (:numref:`optim`) are discussed afterwards. 
 
-Users who may lack on-premise resources or IT support can use the included recipe to leveraging `Amazon Web Services` and its ``cfncluster`` technology. `This cloud computing recipe <https://github.com/gaelforget/ECCO_v4_r2/tree/master/example_scripts/>`__ sets up a complete computational environment in the `AWS` cloud (hardware, software, model, and inputs). In a January 2017 test, it ran the 20 year ECCO v4 r2 solution on 96 vCPUs within 36h for a cost of about 40$ (using `AWS spot instances`).
+.. _computers:
 
-.. _mitgcmdirs:
+.. rubric:: Required Computational Environment
 
-.. rubric:: Expected Directory Organization
+Running the model on a linux clusters requires `gcc` and `gfortran` (or alternative compilers), `mpi` libraries (for parallel computation), and `netcdf` libraries (e.g., for the `profiles` package) as explained in the `MITgcm documentations <http://mitgcm.org/public/docs.html>`__. The 20-year ECCO v4 r2 model run typically takes between 6 to 12 hours when using 96 cores and modern on-premise clusters.
 
-includes the `MITgcm` as well as the ECCO v4 model setup and inputs, once they have been downloaded in ``MITgcm/mysetups/`` according to the :numref:`download-setup` directions, so that they can be used according to the :numref:`eccov4-baseline` and the :ref:`baseline` directions. 
-
-::
-
-   MITgcm/
-     model/     (core of MITgcm)
-     pkg/       (MITgcm modules)
-     tools/
-       genmake2          (shell script)
-       build_options     (wrt compilers)
-     mysetups/           (user created)
-       ECCO_v4_r2/
-         build/
-         code/
-         input/
-         input_itXX/
-         results_itXX/
-         forcing_baseline2/    (from wget)
-         inputs_baseline2/     (from wget)
+Users who may lack on-premise resources or IT support can use `the included cloud computing recipe <https://github.com/gaelforget/ECCO_v4_r2/tree/master/example_scripts/>`__ to leverage `Amazon Web Services`'s ``cfncluster`` technology. This recipe sets up a complete computational environment in the `AWS` cloud (hardware, software, model, and inputs). When this recipe was tested in January 2017, the 20 year ECCO v4 r2 model run completed within 36h using 96 vCPUs and `AWS spot instances` for a cost of about 40$. 
 
 .. _eccov4-baseline:
 
 The Release 2 Solution
 ----------------------
 
-It is here assumed that `MITgcm` and ECCO v4 directories have been downloaded and organized as shown in :ref:`mitgcmdirs`. 
-
-User can then re-run the ECCO version 4 release 2 solution by following the directions provided under :ref:`baseline`. The 20-year model run typically takes between 6 to 12 hours of wall-clock time on 96 cores using a modern computing environment. The number of cores is 96 by default as reflected by :ref:`baseline` but can be reduced to 24 simply by copying ``code/SIZE.h_24cores`` over ``code/SIZE.h`` before compiling the model and then running it with ``-np 24`` rather than ``-np 96`` in :ref:`baseline`. However, it should be noted that reducing the number of cores increases wall-clock time and memory requirements.
-
-Once their model run has completed, user is strongly encouraged to :ref:`testreportecco` using the included ``testreport_ecco.m`` as explained below. The expected level of accuracy for 20-year re-runs, based upon an up-to-date `MITgcm` code and a standard computing environment, is reached when the displayed values are all less than 3. Interpretation of the ``testreport_ecco.m`` output is explained in detail in :cite:`for-eta:15`.
+This section assumes that `MITgcm`, the ECCO v4 setup, and model inputs have been installed according to the :ref:`mitgcmdirs` (see :numref:`download-setup`). Users can then :ref:`baseline` the model to reproduce ECCO v4 r2, and :ref:`testreportecco` once the model run has completed.
 
 .. _baseline:
 
-.. rubric:: Compile, Link, Run
-
-Procedure to compile `MITgcm` and re-run the ECCO v4 r2 solution :cite:`dspace-eccov4r2`. Pre-requisites: (1) `gcc`, `gfortran` (or alternatives), `mpi` (for parallel computation) and `netcdf` (for the `profiles` package); (2) `MITgcm` and `ECCO v4` setup (:numref:`download-setup`); (3) input directories organized as shown in :ref:`mitgcmdirs` (see :numref:`download-setup`). Other compiler options, besides ``linux_amd64_gfortran``, are provided by the `MITgcm` development team in ``MITgcm/tools/build_options/`` for cases when `gfortran` is not available. The contents of ``inputs_baseline2/`` should match this `ftp server <ftp://mit.ecco-group.org/ecco_for_las/version_4/release2/input_ecco/>`__ (see :numref:`download-setup`).
+.. rubric:: Compile, Link, And Run
 
 ::
 
@@ -70,11 +46,13 @@ Procedure to compile `MITgcm` and re-run the ECCO v4 r2 solution :cite:`dspace-e
     #3) run model
     mpiexec -np 96 ./mitgcmuv
 
+Other compiler options, besides ``linux_amd64_gfortran``, are provided by the `MITgcm` development team in ``MITgcm/tools/build_options/`` for cases when `gfortran` is not available. The number of cores is 96 by default as seen in :ref:`baseline`. It can be reduced to 24 simply by copying ``code/SIZE.h_24cores`` over ``code/SIZE.h`` before compiling the model and then running it with ``-np 24`` rather than ``-np 96`` in :ref:`baseline`. It can alternatively be increased to 192 cores to speed up the model run or reduce memory requirements.
+
 .. _testreportecco:
 
 .. rubric:: Verify Results Accuracy
 
-Top: instructions to gauge the accuracy of a re-run of ECCO v4 r2 :cite:`dspace-eccov4r2` using the ``testreport_ecco.m`` Matlab script :cite:`for-eta:15`. Bottom: sample output of ``testreport_ecco.m`` where the re-run agrees up to 6 digits with the reference result. Additional tests of meridional transports can be activated by users who have installed the gcmfaces toolbox :cite:`for-eta:15` as explained in :numref:`download-analysis`. To this end, users would uncomment the ``p = genpath...`` command below and, if needed, replace ``gcmfaces/`` with the directory where the `gcmfaces` toolbox has been installed.
+``testreport_ecco.m`` provides a means to evaluate the accuracy of a solution re-run :cite:`for-eta:15`. To this end, open Matlab or Octave and proceed as follows:
 
 ::
 
@@ -87,41 +65,38 @@ Top: instructions to gauge the accuracy of a re-run of ECCO v4 r2 :cite:`dspace-
     addpath results_itXX;%add necessary .m and .mat files to path
     mytest=testreport_ecco('run/');%compute tests and display results
 
+When using an up-to-date copy of MITgcm and a standard computing environment, the expected level of accuracy is reached when all reported values are below -3 :cite:`for-eta:15`. For example:
+
 ::
 
     --------------------------------------------------------------
            &   jT &   jS &      ... &  (reference is)
-    run/   & (-6) & (-6) &      ...  &  baseline2      
+    run/   & (-3) & (-3) &      ...  &  baseline2      
     --------------------------------------------------------------
+
+Additional accuracy tests can be carried out for, e.g., meridional transports using the `gcmfaces` toolbox (see :numref:`download-analysis`) by uncommenting `p = genpath...`` in the above instructions.
 
 .. _eccov4-other:
 
 Re-Run Other Solutions
 ----------------------
 
-It is here assumed that `MITgcm` and ECCO v4 directories have been downloaded and organized as shown in :ref:`mitgcmdirs`. 
+Reproducing the latest ECCO version 4 `release 3` solution, which covers 1992 to 2015, can be done by following `O. Wang's directions <ftp://ecco.jpl.nasa.gov/Version4/Release3/doc/ECCOv4r3_reproduction.pdf>`__. Reproducing the older `baseline 1` solution, which closely matches the original `release 1` solution of :cite:`for-eta:15`, can be done by modifying the `release 2` case as follows:
 
-Users can then re-run the `baseline 1` solution that more closely matches the original, `release 1`, solution of :cite:`for-eta:15`. However, to re-run `baseline 1` instead of `release 2`, a few modifications to the setup are needed: (a) download the corresponding forcing fields as follows:
+1. download `the baseline 1 forcing <ftp://mit.ecco-group.org/ecco_for_las/version_4/release1/forcing_baseline1/>`__.
 
-::
+2. recompile the modeli after defining ``ALLOW_KAPGM_CONTROL_OLD`` and ``ALLOW_KAPREDI_CONTROL_OLD`` in ``code/GMREDI_OPTIONS.h`` as well as ``ALLOW_AUTODIFF_INIT_OLD`` in ``code/AUTODIFF_OPTIONS.h``.
 
-    wget --recursive ftp://mit.ecco-group.org/ecco_for_las/version_4/release1/forcing_baseline1/
+3. before running the model: copy ``input_itXX/data`` and ``data.exf`` over ``input/data`` and ``data.exf``. 
 
-(b) before compiling the model: define ``ALLOW_KAPGM_CONTROL_OLD`` and
-``ALLOW_KAPREDI_CONTROL_OLD`` in ``code/GMREDI_OPTIONS.h``;
-define ``ALLOW_AUTODIFF_INIT_OLD`` in
-``code/AUTODIFF_OPTIONS.h``; (c) before running the model: copy
-``input_itXX/data`` and ``data.exf`` over ``input/data``
-and ``data.exf``. 
-Users who may want to reproduce `release 1` even more precisely than
-`baseline 1` does should contact ecco-support@mit.edu to obtain
-additional model inputs.
+Users who may hold a `TAF <http://www.fastopt.de/>`__ license can also: 
 
-Users holding a `TAF <http://www.fastopt.de/>`__ license can also: 
-(a) compile the adjoint by replacing ``make -j 4`` with ``make adall -j 4``
-in :ref:`baseline`; (b) activate the adjoint by setting
-``useAUTODIFF=.TRUE.,`` in ``data.pkg``; (c) run the adjoint by replacing
-``mitgcmuv`` with ``mitgcmuv_ad`` in :ref:`baseline`.
+1. compile the adjoint by replacing ``make -j 4`` with ``make adall -j 4`` in :ref:`baseline`
+
+2. activate the adjoint by setting ``useAUTODIFF=.TRUE.,`` in ``input/data.pkg`` 
+
+3. run the adjoint by replacing ``mitgcmuv`` with ``mitgcmuv_ad`` in :ref:`baseline`.
+
 
 .. _testreport:
 
