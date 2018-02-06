@@ -19,17 +19,11 @@ Users who may lack on-premise resources or IT support can use `the included clou
 The Release 2 Solution
 ----------------------
 
-This section assumes that `MITgcm`, the ECCO v4 setup, and model inputs have been installed according to the :ref:`mitgcmdirs` (see :numref:`download-setup`). User can then re-run the ECCO v4 r2 solution by following the directions provided under :ref:`baseline`. 
-
-The number of cores is 96 by default as reflected by :ref:`baseline` but can be reduced to 24 simply by copying ``code/SIZE.h_24cores`` over ``code/SIZE.h`` before compiling the model and then running it with ``-np 24`` rather than ``-np 96`` in :ref:`baseline`. However, it should be noted that reducing the number of cores increases wall-clock time and memory requirements.
-
-Once their model run has completed, user is strongly encouraged to :ref:`testreportecco` using the included ``testreport_ecco.m`` as explained below. The expected level of accuracy for 20-year re-runs, based upon an up-to-date `MITgcm` code and a standard computing environment, is reached when the displayed values are all less than 3. Interpretation of the ``testreport_ecco.m`` output is explained in detail in :cite:`for-eta:15`.
+This section assumes that `MITgcm`, the ECCO v4 setup, and model inputs have been installed according to the :ref:`mitgcmdirs` (see :numref:`download-setup`). Users can then :ref:`baseline` the model to reproduce ECCO v4 r2, and :ref:`testreportecco` once the model run has completed.
 
 .. _baseline:
 
-.. rubric:: Compile, Link, Run
-
-Procedure to compile `MITgcm` and re-run the ECCO v4 r2 solution :cite:`dspace-eccov4r2`. Pre-requisites: (1) `gcc`, `gfortran` (or alternatives), `mpi` (for parallel computation) and `netcdf` (for the `profiles` package); (2) `MITgcm` and `ECCO v4` setup (:numref:`download-setup`); (3) input directories organized as shown in :ref:`mitgcmdirs` (see :numref:`download-setup`). Other compiler options, besides ``linux_amd64_gfortran``, are provided by the `MITgcm` development team in ``MITgcm/tools/build_options/`` for cases when `gfortran` is not available. The contents of ``inputs_baseline2/`` should match this `ftp server <ftp://mit.ecco-group.org/ecco_for_las/version_4/release2/input_ecco/>`__ (see :numref:`download-setup`).
+.. rubric:: Compile, Link, And Run
 
 ::
 
@@ -52,11 +46,13 @@ Procedure to compile `MITgcm` and re-run the ECCO v4 r2 solution :cite:`dspace-e
     #3) run model
     mpiexec -np 96 ./mitgcmuv
 
+Other compiler options, besides ``linux_amd64_gfortran``, are provided by the `MITgcm` development team in ``MITgcm/tools/build_options/`` for cases when `gfortran` is not available. The number of cores is 96 by default as seen in :ref:`baseline`. It can be reduced to 24 simply by copying ``code/SIZE.h_24cores`` over ``code/SIZE.h`` before compiling the model and then running it with ``-np 24`` rather than ``-np 96`` in :ref:`baseline`. It can alternatively be increased to 192 cores to speed up the model run or reduce memory requirements.
+
 .. _testreportecco:
 
 .. rubric:: Verify Results Accuracy
 
-Top: instructions to gauge the accuracy of a re-run of ECCO v4 r2 :cite:`dspace-eccov4r2` using the ``testreport_ecco.m`` Matlab script :cite:`for-eta:15`. Bottom: sample output of ``testreport_ecco.m`` where the re-run agrees up to 6 digits with the reference result. Additional tests of meridional transports can be activated by users who have installed the gcmfaces toolbox :cite:`for-eta:15` as explained in :numref:`download-analysis`. To this end, users would uncomment the ``p = genpath...`` command below and, if needed, replace ``gcmfaces/`` with the directory where the `gcmfaces` toolbox has been installed.
+``testreport_ecco.m`` provides a means to evaluate the accuracy of a re-run :cite:`for-eta:15`. To this end, open Matlab or Octave and proceed as follows:
 
 ::
 
@@ -69,12 +65,16 @@ Top: instructions to gauge the accuracy of a re-run of ECCO v4 r2 :cite:`dspace-
     addpath results_itXX;%add necessary .m and .mat files to path
     mytest=testreport_ecco('run/');%compute tests and display results
 
+When using the up-to-date copy of MITgcm and a standard computing environment, the expected level of accuracy is reached when all reported values are below -3 :cite:`for-eta:15`. For example:
+
 ::
 
     --------------------------------------------------------------
            &   jT &   jS &      ... &  (reference is)
-    run/   & (-6) & (-6) &      ...  &  baseline2      
+    run/   & (-3) & (-3) &      ...  &  baseline2      
     --------------------------------------------------------------
+
+Additional accuracy tests can be carried out for, e.g., meridional transports using the `gcmfaces` toolbox (see :numref:`download-analysis`) by uncommenting `p = genpath...`` in the above instructions.
 
 .. _eccov4-other:
 
