@@ -67,6 +67,8 @@ Other compiler options, besides ``linux_amd64_gfortran``, are provided by the `M
 
 When using an up-to-date copy of `MITgcm` and a standard computational environment, the expected level of accuracy is reached when all reported values are below -3 :cite:`for-eta:15`. For example:
 
+When using an up-to-date copy of MITgcm and a standard computing environment, the expected level of accuracy is reached when all reported values are below -3 :cite:`for-eta:15`. For example:
+
 ::
 
     --------------------------------------------------------------
@@ -96,7 +98,6 @@ Users who may hold a `TAF <http://www.fastopt.de/>`__ license can also:
 2. activate the adjoint by setting ``useAUTODIFF=.TRUE.,`` in ``input/data.pkg`` 
 
 3. run the adjoint by replacing ``mitgcmuv`` with ``mitgcmuv_ad`` in :ref:`baseline`.
-
 
 .. _testreport:
 
