@@ -16,46 +16,14 @@ additional resources (:numref:`other-resources`).
 The Release 2 Solution
 ----------------------
 
-The ECCO v4 r2 state estimate output is permanently archived within the `Harvard Dataverse <https://dataverse.harvard.edu/dataverse/ECCOv4r2>`__ that provides citable identifiers for the various datasets as reported in this `README.pdf <https://dataverse.harvard.edu/api/access/datafile/2863409>`__. For download purposes, the ECCO v4 r2 output is also made available via this `ftp
-server <ftp://mit.ecco-group.org/ecco_for_las/version_4/release2/>`__ by the `ECCO Consortium <http://ecco-group.org>`__. The various directory contents are summarized in this `README <http://mit.ecco-group.org/opendap/ecco_for_las/version_4/release2/README>`__ and specific details are provided in each subdirectory’s README. Under Linux or macOS for instance, a simple download method consists in using ``wget`` at the command line by typing
-
-::
-
-    wget --recursive ftp://mit.ecco-group.org/ecco_for_las/version_4/release2/nctiles_grid
-    wget --recursive ftp://mit.ecco-group.org/ecco_for_las/version_4/release2/nctiles_climatology
-    wget --recursive ftp://mit.ecco-group.org/ecco_for_las/version_4/release2/nctiles_monthly
-
-and similarly for the other directories. The ``nctiles_`` directory prefix indicates that contents are provided on the native LLC90 grid in the nctiles format :cite:`for-eta:15` which can be read in `Matlab` using the `gcmfaces` toolbox (see :numref:`download-analysis`). Alternatively users can download interpolated fields, on a :math:`1/2\times1/2^\circ` grid in the netcdf format, from the ``interp_*`` directories. The ``input_*`` directories contain binary and netcdf input files that can be read by `MITgcm` (:numref:`download-setup` and :numref:`eccov4-baseline`). The ``profiles/`` directory (`see ftp server <ftp://mit.ecco-group.org/ecco_for_las/version_4/release2/profiles/>`_) additionally contains the MITprof collections of collocated in situ and state estimate profiles in `netcdf` format :cite:`for-eta:15`.
+.. include:: eccov4r2_output.rst
 
 .. _download-setup:
 
 The Release 2 Setup
 -------------------
 
-To :ref:`baseline` the solution and :ref:`testreportecco` in :numref:`eccov4-baseline`, user wants to install the following components. First, install the `MITgcm` either by downloading a copy from `this github repository <https://github.com/MITgcm/MITgcm/>`__. Second, create a subdirectory called ``MITgcm/mysetups/`` and download the model setup there from `this github
-repository <https://github.com/gaelforget/ECCO_v4_r2/>`__ by typing:
-
-::
-
-    git clone https://github.com/MITgcm/MITgcm
-    mkdir MITgcm/mysetups
-    mv ECCO_v4_r2 MITgcm/mysetups/.
-    cd MITgcm/mysetups
-    git clone https://github.com/gaelforget/ECCO_v4_r2    
-
-Third, download the model input forcing fields (96G of 6-hourly fields in ECCO v4 r2), initial condition, grid, etc. input (610M), and observational input data (25G) either from the `Harvard Dataverse <https://dataverse.harvard.edu/dataverse/ECCOv4r2inputs>`__ permanent archive or from the `ECCO ftp server <ftp://mit.ecco-group.org/ecco_for_las/version_4/release2/>`__ as follows:
-
-::
-
-    cd MITgcm/mysetups/ECCO_v4_r2
-    wget --recursive ftp://mit.ecco-group.org/ecco_for_las/version_4/release2/input_forcing/
-    wget --recursive ftp://mit.ecco-group.org/ecco_for_las/version_4/release2/input_init/
-    wget --recursive ftp://mit.ecco-group.org/ecco_for_las/version_4/release2/input_ecco/
-    mv mit.ecco-group.org/ecco_for_las/version_4/release2/input_forcing forcing_baseline2
-    mv mit.ecco-group.org/ecco_for_las/version_4/release2/input_ecco inputs_baseline2
-    mv mit.ecco-group.org/ecco_for_las/version_4/release2/input_init inputs_baseline2/.
-
-Downloaded directories should be organized as shown under :ref:`mitgcmdirs` for use in :numref:`eccov4-baseline`. Experienced users should feel free to re-organize directories assuming that they are comfortable with modifying the :numref:`eccov4-baseline` instructions accordingly.
+.. include:: eccov4r2_setup.rst
 
 .. _download-analysis:
 
