@@ -1,8 +1,8 @@
 
 .. _runs:
 
-Running ECCO Version 4
-**********************
+Rerunning
+*********
 
 This section first explains how the ECCO version 4 setup can be used to re-run the ECCO v4 r2 solution for 1992–2011 (:numref:`eccov4-baseline`). Other state estimate solutions (:numref:`eccov4-other`), short regression tests (:numref:`testreport`), and optimization tests (:numref:`optim`) are discussed afterwards. 
 
@@ -78,8 +78,8 @@ Additional accuracy tests can be carried out for, e.g., meridional transports us
 
 .. _eccov4-other:
 
-Re-Run Other Solutions
-----------------------
+Other Known Solutions
+---------------------
 
 Reproducing the latest ECCO version 4 `release 3` solution, which covers 1992 to 2015, can be done by following `O. Wang's directions <ftp://ecco.jpl.nasa.gov/Version4/Release3/doc/ECCOv4r3_reproduction.pdf>`__. Reproducing the older `baseline 1` solution, which closely matches the original `release 1` solution of :cite:`for-eta:15`, can be done by modifying the `release 2` case as follows:
 

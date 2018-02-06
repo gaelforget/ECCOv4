@@ -6,14 +6,14 @@
 Welcome to ECCO version 4's documentation!
 ==========================================
 
-Here, you will learn about simple methods that allow you to download, analyze, rerun, or modify ECCO and MITgcm solutions. Estimating the Circulation and Climate of the Ocean, version 4, release 2 (`ECCO v4 r2`) is used as a representative example before documenting newer solutions and additional resources associated with the MIT general circulation model (`MITgcm`).
+Here, you will learn about simple methods that are available to download, analyze, rerun, or modify ECCO and MITgcm solutions. In :ref:`downloads` and :ref:`runs`, the `ECCO v4 r2` solution is used as a representative example before reviewing other solutions and additional resources associated with the MIT general circulation model (`MITgcm`). For an overview of the ECCO version 4 framework, please refer to :cite:`for-eta:15`.
 
 .. toctree::
    :maxdepth: 3
    :caption: Contents:
    :numbered: 4
 
-   overview.rst
+   introduction.rst
    downloads.rst
    runs.rst
    biblirefs.rst

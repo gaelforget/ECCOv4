@@ -1,8 +1,8 @@
 
 .. _downloads:
 
-Downloading ECCO Version 4
-**************************
+Downloading
+***********
 
 This section provides directions to download the ECCO v4 r2 output 
 (:numref:`download-solution`), the underlying model setup 
