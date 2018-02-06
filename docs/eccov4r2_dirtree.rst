@@ -16,3 +16,7 @@
          forcing_baseline2/    (user installed)
          inputs_baseline2/     (user installed)
 
+.. note::
+
+   Some subdirectories are omitted in this depiction.
+
