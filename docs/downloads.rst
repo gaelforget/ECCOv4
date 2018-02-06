@@ -25,6 +25,15 @@ The Release 2 Setup
 
 .. include:: eccov4r2_setup.rst
 
+The :ref:`mitgcmdirs` is shown below. While organizing the downloaded directories differently is certainly possible, the :numref:`eccov4-baseline` instructions to :ref:`baseline` the model and :ref:`testreportecco` are based on this organization.
+
+
+.. _mitgcmdirs:
+
+.. rubric:: Recommended Directory Organization
+
+.. include:: eccov4r2_dirtree.rst
+
 .. _download-analysis:
 
 The Gcmfaces Toolbox

@@ -1,6 +1,5 @@
 
-To :ref:`baseline` the solution and :ref:`testreportecco` in :numref:`eccov4-baseline`, user wants to install the following components. First, install the `MITgcm` either by downloading a copy from `this github repository <https://github.com/MITgcm/MITgcm/>`__. Second, create a subdirectory called ``MITgcm/mysetups/`` and download the model setup there from `this github
-repository <https://github.com/gaelforget/ECCO_v4_r2/>`__ by typing:
+Users can donwload the `MITgcm` from `this github repository <https://github.com/MITgcm/MITgcm/>`__ and the model setup there from `that github repository <https://github.com/gaelforget/ECCO_v4_r2/>`__ by typing:
 
 ::
 
@@ -10,7 +9,7 @@ repository <https://github.com/gaelforget/ECCO_v4_r2/>`__ by typing:
     cd MITgcm/mysetups
     git clone https://github.com/gaelforget/ECCO_v4_r2
 
-Third, download the model input forcing fields (96G of 6-hourly fields in ECCO v4 r2), initial condition, grid, etc. input (610M), and observational input data (25G) either from the `Harvard Dataverse <https://dataverse.harvard.edu/dataverse/ECCOv4r2inputs>`__ permanent archive or from the `ECCO ftp server <ftp://mit.ecco-group.org/ecco_for_las/version_4/release2/>`__ as follows:
+Re-running ECCO v4 r2 additionally requires downloading surface forcing input (96G of 6-hourly fields in ECCO v4 r2), initial condition, grid, etc. input (610M), and observational input (25G) either from the `Harvard Dataverse <https://dataverse.harvard.edu/dataverse/ECCOv4r2inputs>`__ permanent archive or from the `ECCO ftp server <ftp://mit.ecco-group.org/ecco_for_las/version_4/release2/>`__ as follows:
 
 ::
 
@@ -21,6 +20,4 @@ Third, download the model input forcing fields (96G of 6-hourly fields in ECCO v
     mv mit.ecco-group.org/ecco_for_las/version_4/release2/input_forcing forcing_baseline2
     mv mit.ecco-group.org/ecco_for_las/version_4/release2/input_ecco inputs_baseline2
     mv mit.ecco-group.org/ecco_for_las/version_4/release2/input_init inputs_baseline2/.
-
-Downloaded directories should be organized as shown under :ref:`mitgcmdirs` for use in :numref:`eccov4-baseline`. Experienced users should feel free to re-organize directories assuming that they are comfortable with modifying the :numref:`eccov4-baseline` instructions accordingly.
 

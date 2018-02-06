@@ -4,42 +4,24 @@
 Running ECCO Version 4
 **********************
 
-This section explains how the ECCO version 4 setup is used to re-run the release 2 state estimate over 1992–2011 (:numref:`eccov4-baseline`), other solutions (:numref:`eccov4-other`), short regression tests (:numref:`testreport`), or optimization tests (:numref:`optim`). `MITgcm` typically runs on linux clusters that provide the `gcc` and `gfortran` compilers (or alternatives), `mpi` libraries (for parallel computation) and `netcdf` libraries (e.g., for the `profiles` package) as explained in the `MITgcm howto and manual <http://mitgcm.org/public/docs.html>`__. 
+This section first explains how the ECCO version 4 setup can be used to re-run the ECCO v4 r2 solution for 1992–2011 (:numref:`eccov4-baseline`). Other state estimate solutions (:numref:`eccov4-other`), short regression tests (:numref:`testreport`), and optimization tests (:numref:`optim`) are discussed afterwards. 
 
-Users who may lack on-premise resources or IT support can use the included recipe to leveraging `Amazon Web Services` and its ``cfncluster`` technology. `This cloud computing recipe <https://github.com/gaelforget/ECCO_v4_r2/tree/master/example_scripts/>`__ sets up a complete computational environment in the `AWS` cloud (hardware, software, model, and inputs). In a January 2017 test, it ran the 20 year ECCO v4 r2 solution on 96 vCPUs within 36h for a cost of about 40$ (using `AWS spot instances`).
+.. _computers:
 
-.. _mitgcmdirs:
+.. rubric:: Required Computational Environment
 
-.. rubric:: Expected Directory Organization
+Running the model on a linux clusters requires `gcc` and `gfortran` (or alternative compilers), `mpi` libraries (for parallel computation), and `netcdf` libraries (e.g., for the `profiles` package) as explained in the `MITgcm documentations <http://mitgcm.org/public/docs.html>`__. The 20-year ECCO v4 r2 model run typically takes between 6 to 12 hours when using 96 cores and modern on-premise clusters.
 
-includes the `MITgcm` as well as the ECCO v4 model setup and inputs, once they have been downloaded in ``MITgcm/mysetups/`` according to the :numref:`download-setup` directions, so that they can be used according to the :numref:`eccov4-baseline` and the :ref:`baseline` directions. 
-
-::
-
-   MITgcm/
-     model/     (core of MITgcm)
-     pkg/       (MITgcm modules)
-     tools/
-       genmake2          (shell script)
-       build_options     (wrt compilers)
-     mysetups/           (user created)
-       ECCO_v4_r2/
-         build/
-         code/
-         input/
-         input_itXX/
-         results_itXX/
-         forcing_baseline2/    (from wget)
-         inputs_baseline2/     (from wget)
+Users who may lack on-premise resources or IT support can use `the included cloud computing recipe <https://github.com/gaelforget/ECCO_v4_r2/tree/master/example_scripts/>`__ to leverage `Amazon Web Services`'s ``cfncluster`` technology. This recipe sets up a complete computational environment in the `AWS` cloud (hardware, software, model, and inputs). When this recipe was tested in January 2017, the 20 year ECCO v4 r2 model run completed within 36h using 96 vCPUs and `AWS spot instances` for a cost of about 40$. 
 
 .. _eccov4-baseline:
 
 The Release 2 Solution
 ----------------------
 
-It is here assumed that `MITgcm` and ECCO v4 directories have been downloaded and organized as shown in :ref:`mitgcmdirs`. 
+This section assumes that `MITgcm`, the ECCO v4 setup, and model inputs have been installed according to the :ref:`mitgcmdirs` (see :numref:`download-setup`). User can then re-run the ECCO v4 r2 solution by following the directions provided under :ref:`baseline`. 
 
-User can then re-run the ECCO version 4 release 2 solution by following the directions provided under :ref:`baseline`. The 20-year model run typically takes between 6 to 12 hours of wall-clock time on 96 cores using a modern computing environment. The number of cores is 96 by default as reflected by :ref:`baseline` but can be reduced to 24 simply by copying ``code/SIZE.h_24cores`` over ``code/SIZE.h`` before compiling the model and then running it with ``-np 24`` rather than ``-np 96`` in :ref:`baseline`. However, it should be noted that reducing the number of cores increases wall-clock time and memory requirements.
+The number of cores is 96 by default as reflected by :ref:`baseline` but can be reduced to 24 simply by copying ``code/SIZE.h_24cores`` over ``code/SIZE.h`` before compiling the model and then running it with ``-np 24`` rather than ``-np 96`` in :ref:`baseline`. However, it should be noted that reducing the number of cores increases wall-clock time and memory requirements.
 
 Once their model run has completed, user is strongly encouraged to :ref:`testreportecco` using the included ``testreport_ecco.m`` as explained below. The expected level of accuracy for 20-year re-runs, based upon an up-to-date `MITgcm` code and a standard computing environment, is reached when the displayed values are all less than 3. Interpretation of the ``testreport_ecco.m`` output is explained in detail in :cite:`for-eta:15`.
 
