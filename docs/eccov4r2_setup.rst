@@ -4,12 +4,11 @@ Users can donwload the `MITgcm` from `this github repository <https://github.com
 ::
 
     git clone https://github.com/MITgcm/MITgcm
+    git clone https://github.com/gaelforget/ECCO_v4_r2
     mkdir MITgcm/mysetups
     mv ECCO_v4_r2 MITgcm/mysetups/.
-    cd MITgcm/mysetups
-    git clone https://github.com/gaelforget/ECCO_v4_r2
 
-Re-running ECCO v4 r2 additionally requires downloading surface forcing input (96G of 6-hourly fields in ECCO v4 r2), initial condition, grid, etc. input (610M), and observational input (25G) either from the `Harvard Dataverse <https://dataverse.harvard.edu/dataverse/ECCOv4r2inputs>`__ permanent archive or from the `ECCO ftp server <ftp://mit.ecco-group.org/ecco_for_las/version_4/release2/>`__ as follows:
+Re-running `ECCO v4 r2` additionally requires downloading surface forcing input (96G of 6-hourly fields in `ECCO v4 r2`), initial condition, grid, etc. input (610M), and observational input (25G) either from the `Harvard Dataverse <https://dataverse.harvard.edu/dataverse/ECCOv4r2inputs>`__ permanent archive or directly from the `ECCO ftp server <ftp://mit.ecco-group.org/ecco_for_las/version_4/release2/>`__ as follows:
 
 ::
 
