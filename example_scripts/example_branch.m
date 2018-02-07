@@ -22,6 +22,10 @@ if isempty(which('gcmfaces'));
    p = genpath('gcmfaces/'); addpath(p);
 end;
 
+if isempty(which('gcmfaces'));
+   error('missing gcmfaces; please execute: git clone https://github.com/gaelforget/gcmfaces');
+end;
+
 gcmfaces_global;
 
 if isempty(mygrid);
