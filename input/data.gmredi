@@ -25,6 +25,8 @@
   GM_Kmin_horiz      = 100.,
   GM_Scrit           = 4.D-3,
   GM_Sd              = 1.D-3,
+  GM_background_K3dFile='total_kapgm_r009bit11.bin'
+  GM_isopycK3dFile='total_kapredi_r009bit11.bin'
 #
 ###  GM_Visbeck_alpha   = 1.5D-2,
 ###  GM_Visbeck_alpha   = 0.D0,

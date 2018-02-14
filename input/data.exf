@@ -26,14 +26,14 @@
  &
 #
  &EXF_NML_02
- ustressfile       = 'forcing_baseline2/eccov4r2_ustr',
- vstressfile       = 'forcing_baseline2/eccov4r2_vstr',
- atempfile         = 'forcing_baseline2/eccov4r2_tmp2m_degC',
- aqhfile           = 'forcing_baseline2/eccov4r2_spfh2m',
- precipfile        = 'forcing_baseline2/eccov4r2_rain',
- wspeedfile        = 'forcing_baseline2/eccov4r2_wspeed',
- swdownfile        = 'forcing_baseline2/eccov4r2_dsw',
- lwdownfile        = 'forcing_baseline2/eccov4r2_dlw',
+ ustressfile       = 'eccov4r3_ustr',
+ vstressfile       = 'eccov4r3_vstr',
+ atempfile         = 'eccov4r3_tmp2m_degC',
+ aqhfile           = 'eccov4r3_spfh2m',
+ precipfile        = 'eccov4r3_rain',
+ wspeedfile        = 'eccov4r3_wspeed',
+ swdownfile        = 'eccov4r3_dsw',
+ lwdownfile        = 'eccov4r3_dlw',
 #
  ustressstartdate1   = 19920101,
  ustressstartdate2   = 030000,
@@ -55,7 +55,8 @@
  precipstartdate2  = 030000,
  precipperiod      = 21600.0,
 #
- runofffile        = 'runoff.bin',
+ runofffile        = 'runoff-2d-Fekete-1deg-mon-V4-SMOOTH.bin',
+#runofffile        = 'runoff.bin',
  runoffperiod      = -12,
 #
  uwindstartdate1   = 19920101,

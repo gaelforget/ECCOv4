@@ -76,8 +76,8 @@
  nIter0=1,
 #2 lev2 for testing:
 #nTimeSteps=8,
-#20y:
- nTimeSteps=175295,
+#24y:
+ nTimeSteps=210359,
 #60 years
 #nTimeSteps=525985,
 #
@@ -122,12 +122,14 @@
 
 # Input datasets
  &PARM05
-#adTapeDir='tapes',
- bathyFile      ='bathy.bin',
+ diffKrFile='total_diffkr_r009bit11.bin',
+ adTapeDir='tapes',
+#bathyFile      ='bathy.bin',
+ bathyFile      ='bathy_eccollc_90x50_min2pts.bin',
  hydrogThetaFile='T_OWPv1_M_eccollc_90x50.bin',
  hydrogSaltFile ='S_OWPv1_M_eccollc_90x50.bin',
- viscA4Dfile    ='viscA4Dfld.bin',
- viscA4Zfile    ='viscA4Zfld.bin',
+ viscA4Dfile    ='fenty_biharmonic_visc_v11.bin',
+ viscA4Zfile    ='fenty_biharmonic_visc_v11.bin',
  geothermalFile='geothermalFlux.bin',
 #
  &
