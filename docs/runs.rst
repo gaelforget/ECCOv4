@@ -12,7 +12,7 @@ This section first explains how the `MITgcm` can be used to re-run the `ECCO v4 
 
 Running the model on a linux cluster requires `gcc` and `gfortran` (or alternative compilers), `mpi` libraries (for parallel computation), and `netcdf` libraries (e.g., for the `profiles` package) as explained in the `MITgcm documentations <http://mitgcm.org/public/docs.html>`__. In `ECCO v4 r2`, the 20-year model run typically takes between 6 to 12 hours when using 96 cores and modern on-premise clusters.
 
-Users who may lack on-premise computational resources or IT support can use `the included cloud computing recipe <https://github.com/gaelforget/ECCO_v4_r2/tree/master/example_scripts/>`__ to leverage `Amazon Web Services`'s ``cfncluster`` technology. This recipe sets up a complete computational environment in the `AWS` cloud (hardware, software, model, and inputs). When this recipe was tested in January 2017, the 20-year `ECCO v4 r2` model run took under 36h using 96 vCPUs and `AWS spot instances` for a cost of about 40$. 
+Users who may lack on-premise computational resources or IT support can use `the included cloud computing recipe <https://github.com/gaelforget/ECCOv4/tree/master/example_scripts/>`__ to leverage `Amazon Web Services`'s ``cfncluster`` technology. This recipe sets up a complete computational environment in the `AWS` cloud (hardware, software, model, and inputs). When this recipe was tested in January 2017, the 20-year `ECCO v4 r2` model run took under 36h using 96 vCPUs and `AWS spot instances` for a cost of about 40$. 
 
 .. _eccov4-baseline:
 
@@ -28,7 +28,7 @@ This section assumes that `MITgcm`, the `ECCO v4` setup, and model inputs have b
 ::
 
     #1) compile model
-    cd MITgcm/mysetups/ECCO_v4_r2/build
+    cd MITgcm/mysetups/ECCOv4/build
     ../../../tools/genmake2 -mods=../code -optfile \
          ../../../tools/build_options/linux_amd64_gfortran -mpi
     make depend
@@ -48,7 +48,7 @@ This section assumes that `MITgcm`, the `ECCO v4` setup, and model inputs have b
 
 .. note::
 
-   On most clusters, users would call ``mpiexec`` (or ``mpirun``) via a queuing system rather than directly from the command line. `The cloud computing recipe <https://github.com/gaelforget/ECCO_v4_r2/tree/master/example_scripts/>`__ provides an example.
+   On most clusters, users would call ``mpiexec`` (or ``mpirun``) via a queuing system rather than directly from the command line. `The cloud computing recipe <https://github.com/gaelforget/ECCOv4/tree/master/example_scripts/>`__ provides an example.
 
 Other compiler options, besides ``linux_amd64_gfortran``, are provided by the `MITgcm` development team in ``MITgcm/tools/build_options/`` for cases when `gfortran` is not available. The number of cores is 96 by default as seen in :ref:`baseline`. It can be reduced to, e.g., 24 simply by copying ``code/SIZE.h_24cores`` over ``code/SIZE.h`` before compiling the model and then running `MITgcm` with ``-np 24`` rather than ``-np 96`` in :ref:`baseline`. It can alternatively be increased to, e.g., 192 cores to speed up the model run or reduce memory requirements. In this case one needs to use ``code/SIZE.h_192cores`` at compile-time and ``input/data.exch2_192cores`` at run-time.
 
@@ -60,7 +60,7 @@ Other compiler options, besides ``linux_amd64_gfortran``, are provided by the `M
 
 ::
 
-    cd MITgcm/mysetups/ECCO_v4_r2;
+    cd MITgcm/mysetups/ECCOv4;
     p = genpath('gcmfaces/'); addpath(p); %this can be commented out if needed
     addpath results_itXX; %This adds necessary .m and .mat files to path
     mytest=testreport_ecco('run/'); %This compute tests and display results

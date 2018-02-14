@@ -8,7 +8,7 @@
        genmake2        (shell script)
        build_options   (compiler options)
      mysetups/         (user created)
-       ECCO_v4_r2/
+       ECCOv4/
          build/                (build directory)
          code/                 (compile-time settings)
          input/                (run-time settings)
