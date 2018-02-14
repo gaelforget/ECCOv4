@@ -81,13 +81,9 @@ Accuracy tests can be carried out for, e.g., meridional transports using the `gc
 Other Known Solutions
 ---------------------
 
-Reproducing the latest `ECCO version 4 release 3` solution, which covers 1992 to 2015, can be done by following `O. Wang's directions <ftp://ecco.jpl.nasa.gov/Version4/Release3/doc/ECCOv4r3_reproduction.pdf>`__. Reproducing the older `baseline 1` solution, which most closely matches the `release 1` solution of :cite:`for-eta:15`, can be done by modifying the `release 2` case as follows:
+`ECCO version 4 release 3`: extended solution that covers 1992 to 2015 and was produced by `O. Wang` at JPL; to reproduce this solution follow `O. Wang's directions <ftp://ecco.jpl.nasa.gov/Version4/Release3/doc/ECCOv4r3_reproduction.pdf>`__ or those provided in `ECCOv4r3_mods.md <https://github.com/gaelforget/ECCOv4/blob/master/docs/ECCOv4r3_mods.md>`__. 
 
-1. download `the baseline 1 forcing <ftp://mit.ecco-group.org/ecco_for_las/version_4/release1/forcing_baseline1/>`__.
-
-2. recompile the model after defining ``ALLOW_KAPGM_CONTROL_OLD`` and ``ALLOW_KAPREDI_CONTROL_OLD`` in ``GMREDI_OPTIONS.h`` as well as ``ALLOW_AUTODIFF_INIT_OLD`` in ``AUTODIFF_OPTIONS.h``.
-
-3. use ``input_itXX/data`` and ``input_itXX/data.exf`` instead of ``input/data`` and ``input/data.exf``.
+`ECCO version 4 baseline 1`: older solution that most closely matches the original, `ECCO version 4 release 1`, solution of :cite:`for-eta:15`; to reproduce this solution follow directions provided in `ECCOv4r1_mods.md <https://github.com/gaelforget/ECCOv4/blob/master/docs/ECCOv4r1_mods.md>`__.
 
 Users who may hold a `TAF <http://www.fastopt.de/>`__ license can also: 
 
