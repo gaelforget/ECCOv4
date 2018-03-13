@@ -1,5 +1,5 @@
 
-To set up MITgcm to reproduce the ECCO version 4 release 3 solution, directions provided at [http://eccov4.readthedocs.io/]() should be modified as follows:
+To set up MITgcm to reproduce the ECCO version 4 release 3 solution, directions provided at [http://eccov4.readthedocs.io/](http://eccov4.readthedocs.io/) should be modified as follows:
 
 
 ### install MITgcm + configuration
