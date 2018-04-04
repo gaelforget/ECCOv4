@@ -45,7 +45,7 @@ or the `Octave` version by executing:
 
     git clone -b octave https://github.com/gaelforget/gcmfaces
 
-The `gcmfaces` toolbox can be used, for example, to reproduce the `ECCO v4` standard analysis (i.e., the plots included in :cite:`dspace-eccov4r2` for `ECCO v4 r2`) from the released model output (:numref:`download-solution`) or from the plain, binary, model output (:numref:`eccov4-baseline`). Detailed documentation is provided by ``gcmfaces.pdf`` within the `github repository <https://github.com/gaelforget/gcmfaces>`__.
+The `gcmfaces` toolbox can be used, e.g., to reproduce the `standard analysis` (i.e., the plots in :cite:`dspace-eccov4r2`) from released, nctiles model output (:numref:`download-solution`) or from plain, binary model output (:numref:`eccov4-baseline`). For more information, please consult `the gcmfaces user guide <http://gcmfaces.readthedocs.io/en/latest/>`__.
 
 .. _other-resources:
 
