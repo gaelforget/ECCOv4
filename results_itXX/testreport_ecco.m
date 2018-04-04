@@ -32,6 +32,14 @@ help testreport_ecco;
 return;
 end;
 
+if isempty(which('nansum'));
+  wrnng=sprintf(['The NaN-function suite (nansum.m, etc.) appears to be missing. It can be \n' ...
+                 'added as part of the statistics or downloaded from the matlabcentral file \n' ...
+                 'exchange or http://freesourcecode.net/matlabprojects/57491/nan-suite-in-matlab']);
+  %warning(wrnng); error('missing nansum.m, etc. (see above warning');
+  error(wrnng);
+end;
+
 if nargin==1;
 dirRun=mytest;
 mytest0=testreport_ecco([],'release1'); mytest0.info.interactive=0;%initialization 
@@ -39,6 +47,7 @@ mytest=testreport_ecco(mytest0,'release1',[-1:4],dirRun,1);%compute the tests
 testreport_ecco(mytest,'release1');%display the results
 testreport_ecco(mytest,'baseline1');%display the results
 testreport_ecco(mytest,'baseline2');%display the results
+testreport_ecco(mytest,'release3');%display the results
 nmOut=input('\nPlease type experiment name (e.g. \n ''myRun'') to save the result of \n testreport\_ecco (or hit return to skip)\n');
 if ~isempty(nmOut); testreport_write(mytest,nmOut); end;
 return;
