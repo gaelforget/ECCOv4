@@ -37,12 +37,12 @@
  windFile = 'forcing/jra55/jra55_wspeed',
  windstartdate1   = 19790101,
  windstartdate2   = 000000,
- windperiod       = 21600.0,
+ windperiod       = 10800.0,
 #
- icefile = 'forcing/offline/EmPmR55/SIarea',
- icestartdate1 = 19790101,
- icestartdate2 = 120000,
- iceperiod     = 86400.0,
+#icefile = 'forcing/offline/EmPmR55/SIarea',
+#icestartdate1 = 19790101,
+#icestartdate2 = 120000,
+#iceperiod     = 86400.0,
  /
  &GUD_INTERP_PARAMS
  OASIM_lon0=-179.5,
@@ -60,15 +60,19 @@
  iron_lat_inc=95*1.8947368421052602,
 #
  wind_lon0        = 0.0D0,
- wind_lon_inc     = 1.125D0,
- wind_lat0        = -89.142D0,
- wind_lat_inc     = 1.113D0, 1.118D0, 1.12D0, 1.121D0,
-                     151*1.12145695364238D0,
-                     1.121D0, 1.12D0, 1.118D0, 1.113D0,
- wind_nlon        = 320,
- wind_nlat        = 160,
+ wind_lon_inc     = 0.5625D0,
+ wind_lat0        = -89.57009D0,
+ wind_lat_inc     = 0.556914D0, 0.560202D0, 0.560946D0, 0.561227D0, 0.561363D0,
+                    0.561440D0, 0.561487D0, 0.561518D0, 0.561539D0, 0.561554D0,
+                    0.561566D0, 0.561575D0, 0.561582D0, 0.561587D0, 0.561592D0,
+                    289*0.561619268965519,
+                    0.561592D0, 0.561587D0, 0.561582D0, 0.561575D0, 0.561566D0,
+                    0.561554D0, 0.561539D0, 0.561518D0, 0.561487D0, 0.561440D0,
+                    0.561363D0, 0.561227D0, 0.560946D0, 0.560202D0, 0.556914D0,
+ wind_nlon        = 640,
+ wind_nlat        = 320,
 #
- ice_interpMethod = 0,
+#ice_interpMethod = 0,
  /
 ########################
  &GUD_PARAMS
