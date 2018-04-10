@@ -18,12 +18,11 @@ cp -p tools/build_options/linux_amd64_ifort+mpi_ice_nas .
 
 cd mysetups/llc90drwn3/
 #either soft link the following directories to this location: 
-#    inputs_baseline2, inputs_llc90drwn3, era-interim, and forcing
+#    inputs_baseline2, forcing_baseline2, and inputs_llc90drwn3
 #or edit the following path variables accordingly:
 setenv inputs_baseline2 $PWD"/inputs_baseline2/"
+setenv forcing_baseline2 $PWD"/forcing_baseline2/"
 setenv inputs_llc90drwn3 $PWD"/inputs_llc90drwn3/"
-setenv forcing_era $PWD"/era-interim/"
-setenv forcing_gud $PWD"/forcing/"
 
 cd build/
 ../../../tools/genmake2 -mods ../code -of ../../../linux_amd64_ifort+mpi_ice_nas
@@ -36,11 +35,10 @@ cd run
 cp -p ../build/mitgcmuv .
 ln -s ../input/* .
 ln -s $inputs_llc90drwn3/* .
+ln -s $forcing_baseline2 ./forcing_baseline2
 ln -s $inputs_baseline2/input_init/* .
 ln -s $inputs_baseline2/input_insitu/* .
 ln -s $inputs_baseline2/input_other/* .
-ln -s $forcing_era ./era-interim
-ln -s $forcing_gud ./forcing
 
 #execute the following command via adequate submission script:
 mpiexec -np 96 dplace -s1 ./mitgcmuv
