@@ -2,8 +2,6 @@
  &SEAICE_PARM01
 #the following is needed to recover old default values
 #since PR116 (https://github.com/MITgcm/MITgcm/pull/116)
-      SEAICE_drag=2.e-3,
-      SEAICE_drag_south=2.e-3,
       SEAICE_waterDrag=0.005344995140913508357982664,
       SEAICEetaZmethod=0,
       SEAICEscaleSurfStress=.FALSE.,
