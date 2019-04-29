@@ -22,7 +22,7 @@ This repository contains model settings and documentation ([readthedocs](http://
 
 ECCOv4 r2 FTP: `ftp://mit.ecco-group.org/ecco_for_las/version_4/release2/`
 
-Other ECCOv4 solutions: see **Other known solutions** in the [documentation](https://eccov4.readthedocs.io)
+Other ECCOv4 solutions: see `Other known solutions` in the [documentation](https://eccov4.readthedocs.io)
 
 **References:**
 
