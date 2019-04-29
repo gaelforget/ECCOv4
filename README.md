@@ -1,13 +1,11 @@
 # ECCO version 4
 
+[![DOI](https://zenodo.org/badge/76184688.svg)](https://zenodo.org/badge/latestdoi/76184688)
+[![Documentation Status](https://readthedocs.org/projects/eccov4/badge/?version=latest)](https://eccov4.readthedocs.io/en/latest/?badge=latest)
+
 **Content:**
 
 This repository contains model settings ([code/](code/), [input/](input/)) and documentation ([readthedocs](http://eccov4.readthedocs.io/en/latest/)) that allow users to download, analyze, rerun, or modify ECCO version 4 ocean state estimates using the [MITgcm](http://mitgcm.org/) via on-premise cluster or via Amazon Web Services (see [example_scripts/](example_scripts/)). The master branch is based the ECCO version 4 release 2 solution (see below). If user support is needed, please contact <mitgcm-support@mit.edu> or <ecco-support@mit.edu>.
-
-
-**Citation for this repository:**
-
-[![DOI](https://zenodo.org/badge/76184688.svg)](https://zenodo.org/badge/latestdoi/76184688)
 
 [Estimating the Circulation and Climate of the Ocean]: http://ecco-group.org/
 [MIT general circulation model]: http://mitgcm.org/
