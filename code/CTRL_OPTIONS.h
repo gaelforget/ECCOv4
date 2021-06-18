@@ -40,6 +40,9 @@ C This allows for GMREDI controls
 #define ALLOW_KAPREDI_CONTROL
 # undef ALLOW_KAPREDI_CONTROL_OLD
 
+C This allows for DIFFKR controls
+#define ALLOW_DIFFKR_CONTROL
+
 C o sets of controls
 #define ALLOW_GENTIM2D_CONTROL
 #define ALLOW_GENARR2D_CONTROL
