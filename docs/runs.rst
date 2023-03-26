@@ -98,16 +98,17 @@ Users who may hold a `TAF <http://www.fastopt.de/>`__ license can also:
 Short Forward Tests
 -------------------
 
-To ensure continued compatibility with the up to date `MITgcm`, the `ECCO v4` model setup is tested on a daily basis using the ``MITgcm/verification/testreport`` command line utility that compares re-runs with reference results over a few time steps (see below and `the MITgcm howto <http://mitgcm.org/public/docs.html>`__ for additional explanations). These tests use dedicated versions of the `ECCO v4` model setup which are available under `MITgcm_contrib/verification_other/ <http://mitgcm.org/viewvc/MITgcm/MITgcm_contrib/verification_other/>`__.
+To ensure continued compatibility with the up to date `MITgcm`, the `ECCO v4` model setup is tested on a daily basis using the ``MITgcm/verification/testreport`` command line utility that compares re-runs with reference results over a few time steps (see below and `the MITgcm howto <http://mitgcm.org/public/docs.html>`__ for additional explanations). These tests use dedicated versions of the `ECCO v4` model setup which are available under `MITgcm_contrib/verification_other/ <https://github.com/MITgcm/verification_other/>`__.
 
-`global_oce_llc90/ <http://mitgcm.org/viewvc/MITgcm/MITgcm_contrib/verification_other/global_oce_llc90/>`__ (595M) uses the same LLC90 grid as the production `ECCO v4` setup does. Users are advised against running even forward LLC90 tests with fewer than 12 cores (96 for adjoint tests) to avoid potential memory overloads. `global_oce_cs32/ <http://mitgcm.org/viewvc/MITgcm/MITgcm_contrib/verification_other/global_oce_cs32/>`__ (614M) uses the much coarser resolution CS32 grid and can thus be used on any modern laptop. Instructions for their installation are provided in `this README <http://mitgcm.org/viewvc/*checkout*/MITgcm/MITgcm_contrib/verification_other/global_oce_llc90/README>`__ and `that README <http://mitgcm.org/viewvc/*checkout*/MITgcm/MITgcm_contrib/verification_other/global_oce_cs32/README>`__, respectively. Once installed, the smaller setup can be executed on one core, for instance, by typing:
+`global_oce_llc90/ <
+    https://github.com/MITgcm/verification_other/global_oce_llc90/>`__ (595M) uses the same LLC90 grid as the production `ECCO v4` setup does. Users are advised against running even forward LLC90 tests with fewer than 12 cores (96 for adjoint tests) to avoid potential memory overloads. `global_oce_cs32/ <https://github.com/MITgcm/verification_other/global_oce_cs32/>`__ (614M) uses the much coarser resolution CS32 grid and can thus be used on any modern laptop. Instructions for their installation are provided in `this README <http://mitgcm.org/viewvc/*checkout*/MITgcm/MITgcm_contrib/verification_other/global_oce_llc90/README>`__ and `that README <http://mitgcm.org/viewvc/*checkout*/MITgcm/MITgcm_contrib/verification_other/global_oce_cs32/README>`__, respectively. Once installed, the smaller setup can be executed on one core, for instance, by typing:
 
 ::
 
     cd MITgcm/verification/
     ./testreport -t global_oce_cs32
 
-The test outcome will be reported to screen as shown in :ref:`report`. Daily results of these tests, which currently run on the `glacier` cluster, are reported `on this site <http://mitgcm.org/public/testing.html>`__. To test `global_oce_llc90/ <http://mitgcm.org/viewvc/MITgcm/MITgcm_contrib/verification_other/global_oce_llc90/>`__ using 24 processors and `gfortran` the corresponding command typically is:
+The test outcome will be reported to screen as shown in :ref:`report`. Daily results of these tests, which currently run on the `glacier` cluster, are reported `on this site <http://mitgcm.org/public/testing.html>`__. To test `global_oce_llc90/ <https://github.com/MITgcm/verification_other/global_oce_llc90/>`__ using 24 processors and `gfortran` the corresponding command typically is:
 
 ::
 
@@ -141,15 +142,15 @@ Below is an abbreviated example of testreport output to screen.
 Other Short Tests
 -----------------
 
-Running the adjoint tests associated with :numref:`testreport` requires: (1) holding a `TAF <http://www.fastopt.de/>`__ license; (2) soft linking ``code/`` to ``code_ad/`` in `global_oce_cs32/ <http://mitgcm.org/viewvc/MITgcm/MITgcm_contrib/verification_other/global_oce_cs32/>`__ and `global_oce_llc90/ <http://mitgcm.org/viewvc/MITgcm/MITgcm_contrib/verification_other/global_oce_llc90/>`__. Users that hold a TAF license can then further proceed with the iterative optimization test case in `global_oce_cs32/input_OI/ <http://mitgcm.org/viewvc/MITgcm/MITgcm_contrib/verification_other/global_oce_cs32/input_OI>`__. For this demo, the ocean model is replaced with a simple diffusion equation.
+Running the adjoint tests associated with :numref:`testreport` requires: (1) holding a `TAF <http://www.fastopt.de/>`__ license; (2) soft linking ``code/`` to ``code_ad/`` in `global_oce_cs32/ <https://github.com/MITgcm/verification_other/global_oce_cs32/>`__ and `global_oce_llc90/ <https://github.com/MITgcm/verification_other/global_oce_llc90/>`__. Users that hold a TAF license can then further proceed with the iterative optimization test case in `global_oce_cs32/input_OI/ <https://github.com/MITgcm/verification_other/global_oce_cs32/input_OI>`__. For this demo, the ocean model is replaced with a simple diffusion equation.
 
 The pre-requisites are:
 
-#. run the adjoint benchmark in `global_oce_cs32/ <http://mitgcm.org/viewvc/MITgcm/MITgcm_contrib/verification_other/global_oce_cs32/>`__ via testreport (see section `2.3 <#testreport>`__).
+#. run the adjoint benchmark in `global_oce_cs32/ <https://github.com/MITgcm/verification_other/tree/master/global_oce_cs32#readme>`__ via testreport (see section `2.3 <#testreport>`__).
 
-#. Go to ``MITgcm/lsopt/`` and compile (see section 3.18 in `manual <http://mitgcm.org/public/r2_manual/latest/online_documents/manual.pdf>`__).
+#. Go to ``MITgcm/lsopt/`` and compile (see `MITgcm manual <https://mitgcm.readthedocs.io/en/latest/?badge=latest>`__).
 
-#. Go to ``MITgcm/optim/``, replace `natl_box_adjoint` with `global_oce_cs32` in the Makefile, and compile as explained in section 3.18 of `the MITgcm manual <http://mitgcm.org/public/r2_manual/latest/online_documents/manual.pdf>`__ to generate the ``optim.x`` executable. If this process failed, please contact mitgcm-support@mit.edu
+#. Go to ``MITgcm/optim/``, replace `natl_box_adjoint` with `global_oce_cs32` in the Makefile, and compile as explained in `MITgcm manual <https://mitgcm.readthedocs.io/en/latest/?badge=latest>`__ to generate the ``optim.x`` executable. If this process failed, please contact mitgcm-support@mit.edu
 
 #. go to ``global_oce_cs32/input_OI/`` and type ``source ./prepare_run``
 
