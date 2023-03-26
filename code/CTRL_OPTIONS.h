@@ -48,13 +48,6 @@ C o sets of controls
 #define ALLOW_GENARR2D_CONTROL
 #define ALLOW_GENARR3D_CONTROL
 
-C  o use pkg/smooth correlation operator (incl. smoother) for 3D controls (Weaver, Courtier 01)
-C    This CPP option just sets the default for ctrlSmoothCorrel23 to .TRUE.
-#define ALLOW_SMOOTH_CORREL3D
-C  o use pkg/smooth correlation operator (incl. smoother) for 2D controls (Weaver, Courtier 01)
-C    This CPP option just sets the default for ctrlSmoothCorrel2D to .TRUE.
-#define ALLOW_SMOOTH_CORREL2D
-
 C  o impose bounds on controls
 #define ALLOW_ADCTRLBOUND
 
