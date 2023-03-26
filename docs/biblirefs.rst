@@ -5,6 +5,6 @@
    References
    **********
 
-.. bibliography:: bibli.bib
+.. bibliography::
    :all:
 
