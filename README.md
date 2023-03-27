@@ -20,7 +20,7 @@ This repository contains model settings and documentation ([readthedocs](http://
 
 [Estimating the Circulation and Climate of the Ocean][] version 4 release 2 is an ocean state estimate and solution of the [MIT general circulation model][] that covers the period from 1992 to 2011 (Forget et al., 2016). It is a minor update of the original ECCO version 4 solution (Forget et al., 2015) that benefits from a few additional corrections listed in Forget et al. (2016) and is easier to analyze and re-run. Its input and output are available for direct download from [Dataverse][]. 
 
-Other ECCOv4 solutions: see `Other known solutions` in the [documentation](https://eccov4.readthedocs.io)
+Other ECCOv4 solutions? See `Other known solutions` in the [docs](https://eccov4.readthedocs.io).
 
 **References:**
 
