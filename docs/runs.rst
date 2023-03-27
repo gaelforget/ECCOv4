@@ -40,7 +40,7 @@ This section assumes that `MITgcm`, the `ECCO v4` setup, and model inputs have b
     cd run
     ln -s ../build/mitgcmuv .
     ln -s ../input/* .
-    ln -s ../inputs_baseline2/input*/* .
+    ln -s ../inputs_baseline2/* .
     ln -s ../forcing_baseline2 .
 
     #3) run model

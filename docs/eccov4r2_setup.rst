@@ -12,11 +12,8 @@ Re-running `ECCO v4 r2` additionally requires downloading surface forcing input 
 
 ::
 
-    cd MITgcm/mysetups/ECCOv4
-    wget --recursive ftp://mit.ecco-group.org/ecco_for_las/version_4/release2/input_forcing/
-    wget --recursive ftp://mit.ecco-group.org/ecco_for_las/version_4/release2/input_init/
-    wget --recursive ftp://mit.ecco-group.org/ecco_for_las/version_4/release2/input_ecco/
-    mv mit.ecco-group.org/ecco_for_las/version_4/release2/input_forcing forcing_baseline2
-    mv mit.ecco-group.org/ecco_for_las/version_4/release2/input_ecco inputs_baseline2
-    mv mit.ecco-group.org/ecco_for_las/version_4/release2/input_init inputs_baseline2/.
-
+    julia> cd("MITgcm/mysetups/ECCOv4")
+    julia> include("input/dowload_files.jl")
+    julia> using Main.baseline2_files
+    julia> list1=get_list()
+    julia> [get_files(list1,nam1,pwd()) for nam1 in list1.name]
