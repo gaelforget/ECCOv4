@@ -38,11 +38,10 @@ function compute(pth0)
  if !isempty(glob("costfun*",pth0))
    fil0=glob("costfun*",pth0)[1]
    fc=Main.eccotest.parse_fc(fil0)
+   println("Done with fc")
  else
    fc=DataFrame()
  end
-
- println("done with fc")
 
  ##
 
@@ -59,6 +58,10 @@ function compute(pth0)
  println("done with monthly")
 
  ##
+
+ if nt<maximum(tave)
+   tV,tT,tS=[],[],[]
+ else
 
  tV_m = SharedArray{Float64}(179,ntave)
  tT_m = SharedArray{Float64}(179,ntave)
@@ -77,6 +80,7 @@ function compute(pth0)
  tT=mean(tT_m,dims=2)
 
  println("done with transport")
+ end
 
  ##
 
@@ -160,11 +164,11 @@ end
 function compare(A::DataFrame,B::DataFrame,v::AbstractString)
  a=sort(A[A.name.==v,:],:index)
  b=sort(B[B.name.==v,:],:index)
- nv=length(a.index)
+ nv=min(length(a.index),length(b.index))
  if nv==1 
    abs(a.value[1]-b.value[1])/abs(a.value[1])
  else
-   sqrt(mean((a.value[:]-b.value[:]).^2))/std(a.value[:])
+   sqrt(mean((a.value[1:nv]-b.value[1:nv]).^2))/std(a.value[1:nv])
 end
 end
 
