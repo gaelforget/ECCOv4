@@ -1,6 +1,3 @@
-C $Header: /u/gcmpack/MITgcm_contrib/gael/verification/ECCO_v4_r2/code/CTRL_SIZE.h,v 1.5 2015/05/26 22:44:56 gforget Exp $
-C $Name:  $
-
 c     ==================================================================
 c     CTRL_SIZE.h
 c     ==================================================================

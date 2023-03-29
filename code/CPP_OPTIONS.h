@@ -1,6 +1,3 @@
-C $Header: /u/gcmpack/MITgcm_contrib/gael/verification/ECCO_v4_r2/code/CPP_OPTIONS.h,v 1.5 2014/10/20 03:29:00 gforget Exp $
-C $Name:  $
-
 #ifndef CPP_OPTIONS_H
 #define CPP_OPTIONS_H
 

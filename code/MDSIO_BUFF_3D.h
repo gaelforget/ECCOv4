@@ -1,6 +1,3 @@
-C $Header: /u/gcmpack/MITgcm_contrib/gael/verification/ECCO_v4_r2/code/MDSIO_BUFF_3D.h,v 1.1 2012/10/03 20:27:37 gforget Exp $
-C $Name:  $
-
 CBOP
 C     !ROUTINE: MDSIO_BUFF_3D.h
 C     !INTERFACE:

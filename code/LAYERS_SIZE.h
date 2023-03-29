@@ -1,6 +1,3 @@
-C $Header: /u/gcmpack/MITgcm_contrib/gael/verification/ECCO_v4_r2/code/LAYERS_SIZE.h,v 1.1 2012/10/03 20:27:37 gforget Exp $
-C $Name:  $
-
 C ======================================================================
 C * Compiled-in size options for the LAYERS package *
 C
