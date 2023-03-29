@@ -9,8 +9,8 @@ source ./setup_export.sh
 
 mkdir /shared/run
 cd /shared/run
-ln -s ../MITgcm/mysetups/ECCO_v4_r2/build/mitgcmuv .
-ln -s ../MITgcm/mysetups/ECCO_v4_r2/input/* .
+ln -s ../MITgcm/mysetups/ECCOv4/build/mitgcmuv .
+ln -s ../MITgcm/mysetups/ECCOv4/input/* .
 ln -s ../inputs_baseline2/input*/* .
 ln -s ../forcing_baseline2 .
 

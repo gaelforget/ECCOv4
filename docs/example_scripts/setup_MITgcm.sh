@@ -3,7 +3,7 @@
 if [ ! -e MITgcm ]; then
 
 #update software if needed and generate setup_export.sh
-source ./ECCO_v4_r2/docs/example_scripts/setup_rhel.sh
+source ./ECCOv4/docs/example_scripts/setup_rhel.sh
 
 #define environment variables that MITgcm relies on
 source ./setup_export.sh
@@ -16,8 +16,8 @@ cvs -Q -d :pserver:cvsanon@mitgcm.org:/u/gcmpack co MITgcm_verif_basic
 #install ECCO v4 r2 setup
 mkdir MITgcm/mysetups
 cd MITgcm/mysetups
-git clone https://github.com/gaelforget/ECCO_v4_r2
-mkdir ECCO_v4_r2/run
+git clone https://github.com/gaelforget/ECCOv4
+mkdir ECCOv4/run
 cd ../..
 
 #compile and run short MITgcm test
@@ -26,7 +26,7 @@ cd MITgcm/verification/
 cd ../..
 
 #compile ECCO v4 r2 setup
-cd MITgcm/mysetups/ECCO_v4_r2/build
+cd MITgcm/mysetups/ECCOv4/build
 ../../../tools/genmake2 -mods=../code -optfile ../../../tools/build_options/linux_amd64_gfortran -mpi
 make depend
 make -j 4

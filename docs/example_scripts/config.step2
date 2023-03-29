@@ -6,7 +6,7 @@ aws_secret_access_key = YOUR_AWS_SECRET_ACCESS_KEY
 [cluster default]
 vpc_settings = public
 key_name = YOUR_KEY_NAME
-post_install = https://raw.githubusercontent.com/gaelforget/ECCO_v4_r2/master/docs/example_scripts/setup_rhel.sh
+post_install = https://raw.githubusercontent.com/gaelforget/ECCOv4/master/docs/example_scripts/setup_rhel.sh
 ebs_settings = ECCOv4r2inputs
 master_instance_type = m4.large
 compute_instance_type = c4.4xlarge
