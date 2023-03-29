@@ -12,7 +12,7 @@
          build/                (build directory)
          code/                 (compile-time settings)
          input/                (run-time settings)
-         results_itXX/         (reference results)
+         test/                 (reference results)
          forcing_baseline2/    (user installed)
          inputs_baseline2/     (user installed)
 

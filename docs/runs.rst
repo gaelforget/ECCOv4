@@ -62,7 +62,7 @@ Other compiler options, besides ``linux_amd64_gfortran``, are provided by the `M
 
     cd MITgcm/mysetups/ECCOv4;
     p = genpath('gcmfaces/'); addpath(p); %this can be commented out if needed
-    addpath results_itXX; %This adds necessary .m and .mat files to path
+    addpath test; %This adds necessary .m and .mat files to path
     mytest=testreport_ecco('run/'); %This compute tests and display results
 
 When using an up-to-date copy of `MITgcm` and a standard computational environment, the expected level of accuracy is reached when all reported values are below -3 :cite:`for-eta:15`. For example:

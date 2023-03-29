@@ -136,7 +136,7 @@ end
 
 ```
 include("03_26/mat_to_table.jl")
-ref_file="03_26/ECCOv4/results_itXX/testreport_baseline2.mat"
+ref_file="03_26/ECCOv4/test/testreport_baseline2.mat"
 ref=mat_to_table(ref_file)
 
 compare(report,ref)
