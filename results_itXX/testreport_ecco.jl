@@ -4,6 +4,8 @@ module eccotest
 using Glob, MITgcmTools, MeshArrays, DataFrames
 using Distributed, SharedArrays, Statistics
 
+alt_names=false
+
 """
     compute(pth0)
 
@@ -19,16 +21,17 @@ Main.eccotest.compute("03_26/run")
 """
 function compute(pth0)
 
- lst=Main.eccotest.list_diags_files(pth0)
+ alt_names ? lst=list_diags_files_alt(pth0) : lst=list_diags_files(pth0)
  nt=length(lst.state_2d_set1)
 
  tave=193:228
  ntave=length(tave)
  
- pth00=MeshArrays.GRID_LLC90
+ #pth00=MeshArrays.GRID_LLC90
+ pth00="03_26/run_r5gf"
  RAC=Main.eccotest.RAC_masked(pth00)
  vol=Main.eccotest.vol_masked(pth00)
- G,LC=Main.eccotest.load_llc90_grid()
+ G,LC=Main.eccotest.load_llc90_grid(pth00)
 
  ##
 
@@ -49,10 +52,10 @@ function compute(pth0)
 
  @sync @distributed for i = 1:nt
   mH[i] = Main.eccotest.calc_mH(lst.state_2d_set1[i],RAC)
-  mT[i] = Main.eccotest.calc_mT(lst.state_3d_set1[i],"THETA",vol)
-  mS[i] = Main.eccotest.calc_mT(lst.state_3d_set1[i],"SALT",vol)
+  mT[i] = Main.eccotest.calc_mT(lst.state_3d_set1[i],:THETA,vol)
+  mS[i] = Main.eccotest.calc_mT(lst.state_3d_set1[i],:SALT,vol)
  end
- 
+
  println("done with monthly")
 
  ##
@@ -60,7 +63,7 @@ function compute(pth0)
  tV_m = SharedArray{Float64}(179,ntave)
  tT_m = SharedArray{Float64}(179,ntave)
  tS_m = SharedArray{Float64}(179,ntave)
- 
+
  @sync @distributed for i in tave
   j=i-tave[1]+1
   tV_m[:,j] .= Main.eccotest.calc_tV(lst.trsp_3d_set1[i],G,LC)
@@ -78,6 +81,8 @@ function compute(pth0)
  ##
 
  return Main.eccotest.assemble(fc,mH,mT,mS,tV,tT,tS)
+
+#return mH,mT,mS
 
 end
 
@@ -150,9 +155,9 @@ function compare(A::DataFrame,B::DataFrame)
 end
 
 """
-    compare(A::DataFrame,B::DataFrame,v::String)
+    compare(A::DataFrame,B::DataFrame,v::AbstractString)
 """
-function compare(A::DataFrame,B::DataFrame,v::String)
+function compare(A::DataFrame,B::DataFrame,v::AbstractString)
  a=sort(A[A.name.==v,:],:index)
  b=sort(B[B.name.==v,:],:index)
  nv=length(a.index)
@@ -192,12 +197,24 @@ function list_diags_files(pth0)
     trsp_3d_set1=trsp_3d_set1,trsp_3d_set2=trsp_3d_set2)
 end
 
+function list_diags_files_alt(pth0)
+  state_2d_set1=glob("ETAN_mon_mean*data",joinpath(pth0,"ETAN_mon_mean"))
+  state_3d_set1=glob("THETA_mon_mean*data",joinpath(pth0,"THETA_mon_mean"))
+  trsp_3d_set1=glob("UVELMASS_mon_mean*data",joinpath(pth0,"UVELMASS_mon_mean"))
+  trsp_3d_set2=glob("ADVx_TH_mon_mean*data",joinpath(pth0,"ADVx_TH_mon_mean"))
+  (state_2d_set1=state_2d_set1,state_3d_set1=state_3d_set1,
+    trsp_3d_set1=trsp_3d_set1,trsp_3d_set2=trsp_3d_set2)
+end
+
+function read_mdsio_mH(fil,nam)
+ alt_names ? fil2=replace(fil,"ETAN" => nam) : fil2=fil
+ read_mdsio(fil2,nam)
+end
+
 function calc_mH(fil,RAC)
-  meta=read_meta(fil)
-  i1=findall(meta.fldList[:].=="ETAN")[1]
-  i2=findall(meta.fldList[:].=="sIceLoad")[1]
-  state_2d_set1=read_mdsio(fil)
-  tmp=RAC.*(state_2d_set1[:,:,i1]+state_2d_set1[:,:,i2]./1029)
+  ETAN=read_mdsio_mH(fil,:ETAN)
+  sIceLoad=read_mdsio_mH(fil,:sIceLoad)
+  tmp=RAC.*(ETAN+sIceLoad./1029)
   sum(tmp)/sum(RAC)
 end
 
@@ -211,15 +228,6 @@ function RAC_masked(pth0)
   return Float64.(RAC)
 end
 
-function calc_mH(fil,RAC)
-  meta=read_meta(fil)
-  i1=findall(meta.fldList[:].=="ETAN")[1]
-  i2=findall(meta.fldList[:].=="sIceLoad")[1]
-  state_2d_set1=read_mdsio(fil)
-  tmp=RAC.*(state_2d_set1[:,:,i1]+state_2d_set1[:,:,i2]./1029)
-  sum(tmp)/sum(RAC)
-end
-
 function RAC_masked(pth0)
   hFacC=read_mdsio(joinpath(pth0,"hFacC.data"))
   RAC=read_mdsio(joinpath(pth0,"RAC.data"))
@@ -228,11 +236,16 @@ function RAC_masked(pth0)
     hFacC[i]==0 ? RAC[i]=0 : nothing
   end
   return Float64.(RAC)
+end
+
+function read_mdsio_mT(fil,nam)
+ alt_names ? fil2=replace(fil,"THETA" => nam) : fil2=fil
+ read_mdsio(fil2,nam)
 end
 
 #function calc_mT(fil,nam,vol)
-function calc_mT(fil,nam::String,vol)
-    tmp=vol.*read_mdsio(fil,Symbol(nam))
+function calc_mT(fil,nam::Symbol,vol)
+    tmp=vol.*read_mdsio_mT(fil,nam)
     #[sum(tmp[:,:,k])/sum(vol[:,:,k]) for k in 1:size(tmp,3)]
     sum(tmp)/sum(vol)
 end
@@ -247,17 +260,22 @@ function vol_masked(pth0)
     return Float64.(hFacC)
 end
 
-function load_llc90_grid()
-    pth=MeshArrays.GRID_LLC90
-    γ=GridSpec("LatLonCap",pth)
+function load_llc90_grid(pth=MeshArrays.GRID_LLC90)
+    pth==MeshArrays.GRID_LLC90 ? γ=GridSpec("LatLonCap",pth) : γ=gcmgrid(pth, "LatLonCap", 5,
+      [(90, 270), (90, 270), (90, 90), (270, 90), (270, 90)], [90 1170], Float32, read, write)
     G=GridLoad(γ;option="full")
     LC=LatitudeCircles(-89.0:89.0,G)
     G,LC
 end
 
+function read_mdsio_tV(fil,nam)
+ alt_names ? fil2=replace(fil,"UVELMASS" => nam) : fil2=fil
+ read_mdsio(fil2,nam)
+end
+
 function calc_tV(fil,Γ,LC)
-    u=read(read_mdsio(fil,:UVELMASS),Γ.hFacW)  
-    v=read(read_mdsio(fil,:VVELMASS),Γ.hFacS)
+    u=read(read_mdsio_tV(fil,:UVELMASS),Γ.hFacW)  
+    v=read(read_mdsio_tV(fil,:VVELMASS),Γ.hFacS)
     (Utr,Vtr)=UVtoTransport(u,v,Γ)
 
     #integrate across latitude circles and depth
@@ -271,11 +289,16 @@ function calc_tV(fil,Γ,LC)
     1e-6*MT
 end
 
+function read_mdsio_tT(fil,nam)
+ alt_names ? fil2=replace(fil,"ADVx_TH" => nam) : fil2=fil
+ read_mdsio(fil2,nam)
+end
+
 function calc_tT(fil,Γ,LC)
-    TRx_T=read(read_mdsio(fil,:ADVx_TH)+read_mdsio(fil,:DFxE_TH),Γ.hFacW)  
-    TRy_T=read(read_mdsio(fil,:ADVy_TH)+read_mdsio(fil,:DFyE_TH),Γ.hFacS)  
-    TRx_S=read(read_mdsio(fil,:ADVx_SLT)+read_mdsio(fil,:DFxE_SLT),Γ.hFacW)  
-    TRy_S=read(read_mdsio(fil,:ADVy_SLT)+read_mdsio(fil,:DFyE_SLT),Γ.hFacS)  
+    TRx_T=read(read_mdsio_tT(fil,:ADVx_TH)+read_mdsio_tT(fil,:DFxE_TH),Γ.hFacW)  
+    TRy_T=read(read_mdsio_tT(fil,:ADVy_TH)+read_mdsio_tT(fil,:DFyE_TH),Γ.hFacS)  
+    TRx_S=read(read_mdsio_tT(fil,:ADVx_SLT)+read_mdsio_tT(fil,:DFxE_SLT),Γ.hFacW)  
+    TRy_S=read(read_mdsio_tT(fil,:ADVy_SLT)+read_mdsio_tT(fil,:DFyE_SLT),Γ.hFacS)  
 
     #integrate across latitude circles and depth
     nz=size(Γ.hFacC,2); nt=12; nl=length(LC)
