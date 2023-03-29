@@ -19,7 +19,7 @@ rmdir tmp_namelists
 
 #overwrite old namelists
 
-\cp -f ${dirLlc90}/input_itXX/data* .
+\cp -f ${dirLlc90}/input_other/data* .
 
 #link correct executable, pickup, and controls (for user to fill in ...)
 #link additional cost function material (for user to fill in ...)

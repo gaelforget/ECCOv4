@@ -6,7 +6,7 @@ using MAT, CSV, DataFrames
 
 ```
 using Glob
-pth1="results_itXX/"
+pth1="test/"
 mat_files=glob("*.mat",pth1)
 fil=mat_files[2]
 mat_to_table(fil)

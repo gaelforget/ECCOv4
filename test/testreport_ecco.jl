@@ -11,12 +11,11 @@ alt_names=false
 
 ```
 @everywhere begin
- import Pkg; Pkg.activate("03_26/")
- include("03_26/testreport_ecco.jl")
+ include("test/testreport_ecco.jl")
  using SharedArrays
 end
 
-Main.eccotest.compute("03_26/run")
+report=eccotest.compute("run")
 ```
 """
 function compute(pth0)
@@ -28,7 +27,7 @@ function compute(pth0)
  ntave=length(tave)
  
  #pth00=MeshArrays.GRID_LLC90
- pth00="03_26/run_r5gf"
+ pth00="run"
  RAC=Main.eccotest.RAC_masked(pth00)
  vol=Main.eccotest.vol_masked(pth00)
  G,LC=Main.eccotest.load_llc90_grid(pth00)
@@ -38,11 +37,10 @@ function compute(pth0)
  if !isempty(glob("costfun*",pth0))
    fil0=glob("costfun*",pth0)[1]
    fc=Main.eccotest.parse_fc(fil0)
+   println("Done with fc")
  else
    fc=DataFrame()
  end
-
- println("done with fc")
 
  ##
 
@@ -59,6 +57,10 @@ function compute(pth0)
  println("done with monthly")
 
  ##
+
+ if nt<maximum(tave)
+   tV,tT,tS=[],[],[]
+ else
 
  tV_m = SharedArray{Float64}(179,ntave)
  tT_m = SharedArray{Float64}(179,ntave)
@@ -77,6 +79,7 @@ function compute(pth0)
  tT=mean(tT_m,dims=2)
 
  println("done with transport")
+ end
 
  ##
 
@@ -131,11 +134,11 @@ end
     compare(A::DataFrame,B::DataFrame)
 
 ```
-include("03_26/mat_to_table.jl")
-ref_file="03_26/ECCOv4/results_itXX/testreport_baseline2.mat"
+include("test/mat_to_table.jl")
+ref_file="test/testreport_baseline2.mat"
 ref=mat_to_table(ref_file)
 
-compare(report,ref)
+eccotest.compare(report,ref)
 ```
 """
 function compare(A::DataFrame,B::DataFrame)
@@ -160,11 +163,11 @@ end
 function compare(A::DataFrame,B::DataFrame,v::AbstractString)
  a=sort(A[A.name.==v,:],:index)
  b=sort(B[B.name.==v,:],:index)
- nv=length(a.index)
+ nv=min(length(a.index),length(b.index))
  if nv==1 
    abs(a.value[1]-b.value[1])/abs(a.value[1])
  else
-   sqrt(mean((a.value[:]-b.value[:]).^2))/std(a.value[:])
+   sqrt(mean((a.value[1:nv]-b.value[1:nv]).^2))/std(a.value[1:nv])
 end
 end
 

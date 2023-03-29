@@ -5,7 +5,7 @@
 
 **Content:**
 
-This repository contains model settings and documentation ([readthedocs](http://eccov4.readthedocs.io/en/latest/)) that allow users to download, analyze, rerun, or modify ECCO version 4 ocean state estimates using the [MITgcm](http://mitgcm.org/) via on-premise computers or [cloud-computing recipes](example_scripts/README.md)). Model output can be analyzed and manipulated using the [gcmfaces][] and [MITprof][] toolboxes in `Matlab / Octave`. Other toolboxes are available in `Python` and `Julia`. For user support, please contact <mitgcm-support@mit.edu> or <ecco-support@mit.edu>.
+This repository contains model settings and documentation ([readthedocs](http://eccov4.readthedocs.io/en/latest/)) that allow users to download, analyze, rerun, or modify ECCO version 4 ocean state estimates using the [MITgcm](http://mitgcm.org/) via on-premise computers or [cloud-computing recipes](docs/example_scripts/README.md)). Model output can be analyzed and manipulated using the [gcmfaces][] and [MITprof][] toolboxes in `Matlab / Octave`. Other toolboxes are available in `Python` and `Julia`. For user support, please contact <mitgcm-support@mit.edu> or <ecco-support@mit.edu>.
 
 [Estimating the Circulation and Climate of the Ocean]: https://ecco.jpl.nasa.gov
 [MIT general circulation model]: https://mitgcm.readthedocs.io
