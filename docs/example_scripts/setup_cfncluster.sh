@@ -9,7 +9,7 @@ sudo pip install cfncluster
 
 #get the cfncluster config file template for ECCO v4 r2
 mkdir .cfncluster
-cp ECCO_v4_r2/example_scripts/config.step2 .cfncluster/config
+cp ECCO_v4_r2/docs/example_scripts/config.step2 .cfncluster/config
 
 #allow cfncluster to launch instances by providing user account information
 cfncluster configure

@@ -6,7 +6,7 @@
 
 
 [eccov4.pdf]: https://github.com/gaelforget/ECCO_v4_r2/blob/master/eccov4.pdf
-[This file]: https://github.com/gaelforget/ECCO_v4_r2/blob/master/example_scripts/README.md
+[This file]: https://github.com/gaelforget/ECCO_v4_r2/blob/master/docs/example_scripts/README.md
 [ECCO v4 r2 github repository]: https://github.com/gaelforget/ECCO_v4_r2
 [gcmfaces]: https://github.com/gaelforget/gcmfaces
 
@@ -30,7 +30,7 @@ Before proceeding any further, users are advised to learn about AWS pricing poli
 - install software and set-up the [cfncluster software][] for ECCO v4 r2:  
 `sudo yum -y install git`  
 `git clone https://github.com/gaelforget/ECCO_v4_r2`  
-`source ./ECCO_v4_r2/example_scripts/setup_cfncluster.sh`  
+`source ./ECCO_v4_r2/docs/example_scripts/setup_cfncluster.sh`  
 - Information provided by the user gets stored in the .cfncluster/config file and will be used by cfncluster to launch the cluster of instances.  
 
 
@@ -47,12 +47,12 @@ Before proceeding any further, users are advised to learn about AWS pricing poli
 - To **prepare the ECCO v4 r2 model run**, execute the following commands:  
 	`cd /shared`  
 	`git clone https://github.com/gaelforget/ECCO_v4_r2`  
-	`source ./ECCO_v4_r2/example_scripts/setup_MITgcm.sh`  
+	`source ./ECCO_v4_r2/docs/example_scripts/setup_MITgcm.sh`  
 - The above command installs and compiles the MITgcm ECCO v4 r2 setup.
 
 ### Step 5:
 - To **run ECCO v4 r2 on 96 vCPUs** via the SGE queuing system, type:  
-`qsub -pe mpi 96 ./ECCO_v4_r2/example_scripts/run_eccov4r2.sh`
+`qsub -pe mpi 96 ./ECCO_v4_r2/docs/example_scripts/run_eccov4r2.sh`
 - During the model run, cluster activity can be monitored using `qhost` and `qstat` at the command line or via the AWS console (see `screenshot-compute.png` for an example).
 - The model run normally proceeds from 1992 to 2011 and may take about 8 min to simulate 1 month. Progress can be monitored by e.g. typing `ls -1 /shared/run/diags/state_2d_set1.0*data` to display the list of completed monthly files at any given point in time.
 - Once the model run has completed, there should be 240 `state_2d_set1.0*data` files, `qstat` should return an empty list, and `tail run/STDOUT.0000` should conclude with **PROGRAM MAIN: Execution ended Normally**.
