@@ -56,7 +56,18 @@ Other compiler options, besides ``linux_amd64_gfortran``, are provided by the `M
 
 .. rubric:: Verify Results Accuracy
 
-``testreport_ecco.m`` provides means to evaluate the accuracy of solution re-runs :cite:`for-eta:15`. To use it, open Matlab or Octave and proceed as follows:
+In Julia, ``testreport_ecco.jl`` provides means to evaluate the accuracy of solution re-runs :cite:`for-eta:15`. To use it, open julia and proceed as follows:
+
+::
+
+    @everywhere begin
+     include("test/testreport_ecco.jl")
+     using SharedArrays
+    end
+
+    report=eccotest.compute("run")
+
+In Matlab, ``testreport_ecco.m`` provides means to evaluate the accuracy of solution re-runs :cite:`for-eta:15`. To use it, open Matlab or Octave and proceed as follows:
 
 ::
 

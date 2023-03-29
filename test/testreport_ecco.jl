@@ -11,12 +11,11 @@ alt_names=false
 
 ```
 @everywhere begin
- import Pkg; Pkg.activate("03_26/")
- include("03_26/testreport_ecco.jl")
+ include("test/testreport_ecco.jl")
  using SharedArrays
 end
 
-Main.eccotest.compute("03_26/run")
+report=eccotest.compute("run")
 ```
 """
 function compute(pth0)
@@ -28,7 +27,7 @@ function compute(pth0)
  ntave=length(tave)
  
  #pth00=MeshArrays.GRID_LLC90
- pth00="03_26/run_r5gf"
+ pth00="run"
  RAC=Main.eccotest.RAC_masked(pth00)
  vol=Main.eccotest.vol_masked(pth00)
  G,LC=Main.eccotest.load_llc90_grid(pth00)
@@ -135,11 +134,11 @@ end
     compare(A::DataFrame,B::DataFrame)
 
 ```
-include("03_26/mat_to_table.jl")
-ref_file="03_26/ECCOv4/test/testreport_baseline2.mat"
+include("test/mat_to_table.jl")
+ref_file="test/testreport_baseline2.mat"
 ref=mat_to_table(ref_file)
 
-compare(report,ref)
+eccotest.compare(report,ref)
 ```
 """
 function compare(A::DataFrame,B::DataFrame)
