@@ -14,8 +14,9 @@ These are downloaded from the `Harvard Dataverse <https://dataverse.harvard.edu/
 
 ::
 
-    julia> cd("MITgcm/mysetups/ECCOv4")
-    julia> include("input/dowload_files.jl")
-    julia> using Main.baseline2_files
-    julia> list1=get_list()
-    julia> [get_files(list1,nam1,pwd()) for nam1 in list1.name]
+    cd("MITgcm/mysetups/ECCOv4")
+    include("input/dowload_files.jl")
+    import Main.baseline2_files: get_list, get_files
+
+    list1=get_list()
+    [get_files(list1,nam1,pwd()) for nam1 in list1.name]
