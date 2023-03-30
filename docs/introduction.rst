@@ -18,9 +18,9 @@ Table of content :
 
 - :ref:`downloads` for an installation guide and links to various analysis tools. 
 
--  :ref:`runs` for simple instructions to reproduce the model simulation (*). 
+-  :ref:`runs` for simple instructions to reproduce the model simulation. 
 
-Note
+.. note::
 
-* In the cloud or on a local computer. To generate additional output, prepare a new experiment with the model, etc.
+   Model can run in the cloud or on a local computer. To generate additional output, prepare a new experiment with the model, etc.
 
