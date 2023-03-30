@@ -1,5 +1,5 @@
 
-Users can donwload the `MITgcm` from `this github repository <https://github.com/MITgcm/MITgcm/>`__ and the model setup there from `that github repository <https://github.com/gaelforget/ECCOv4/>`__ by typing:
+Donwload `MITgcm source code <https://github.com/MITgcm/MITgcm/>`__ and `ECCO V4r2 setup <https://github.com/gaelforget/ECCOv4/>`__ from GitHub. 
 
 ::
 
@@ -8,9 +8,9 @@ Users can donwload the `MITgcm` from `this github repository <https://github.com
     mkdir MITgcm/mysetups
     mv ECCOv4 MITgcm/mysetups/.
 
-Re-running `ECCO v4 r2` additionally requires surface forcing input (96G of 6-hourly fields in `ECCO v4 r2`), initial condition, grid, etc. input (610M), and observational input (25G).
-
-These are downloaded from the `Harvard Dataverse <https://dataverse.harvard.edu/dataverse/ECCOv4r2inputs>`__ archive as follows.
+To run `ECCO V4r2` requires surface forcing input (96G of 6-hourly fields), 
+initial condition, grid, etc. input (610M), and observational input (25G)
+from `this Dataverse <https://dataverse.harvard.edu/dataverse/ECCOv4r2inputs>`__.
 
 ::
 

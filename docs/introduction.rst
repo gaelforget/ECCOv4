@@ -4,14 +4,15 @@
 Introduction
 ************
 
-ECCO version 4 release 2 (`ECCO v4 r2`) is an ocean state estimate and solution of the MIT general circulation model (`MITgcm`) that covers the period from 1992 to 2011 :cite:`dspace-eccov4r2`. It is a minor update of the original ECCO version 4 solution :cite:`for-eta:15` that 
+ECCO version 4 is an ocean state estimate :cite:`for-eta:15` and solution of the MIT general circulation model (`MITgcm <http://mitgcm.org>`__).
+ECCO V4 release 2 (`V4r2`) covers the period from 1992 to 2011 :cite:`dspace-eccov4r2`. 
 
-#. benefits from a few additional corrections listed in :cite:`dspace-eccov4r2`
+⏩️ :ref:`downloads` for an installation guide and links to analysis tools. 
 
-#. is provided with additional model-data misfit and model budget output
+⏩️ :ref:`runs` for simple instructions to reproduce the model simulation. 
 
-#. has become easier to rerun than ECCO version 4 release 1. 
+.. note::
 
+   Reproducing the model simulation (in the cloud or locally) enables you to generate additional output if needed, or prepare a new numerical experiment with the model for example.
 
-The :ref:`downloads` section provides an installation guide and links to various analysis tools. The :ref:`runs` section provides simple instructions to rerun model solutions, which can be useful to generate additional output for example, and start experimenting with the model.
 

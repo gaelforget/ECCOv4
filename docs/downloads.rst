@@ -1,22 +1,25 @@
 
 .. _downloads:
 
-Downloading
-***********
+Download
+********
 
-This section provides directions to download the `ECCO v4 r2` output (:numref:`download-solution`), the underlying model setup that can be used to re-run `ECCO v4 r2` (:numref:`download-setup`), tools for manipulating and analyzing model output (:numref:`download-analysis`), and a list of additional resources (:numref:`other-resources`).
+This section provides directions to download the `ECCO V4r2` model output (:numref:`download-solution`), 
+or download the underlying model setup to reproduce `ECCO V4r2` (:numref:`download-setup`), 
+tools for analyzing outputs (:numref:`download-analysis`), and 
+additional resources (:numref:`other-resources`).
 
 .. _download-solution:
 
-The Release 2 Solution
-----------------------
+Model Solution
+--------------
 
 .. include:: eccov4r2_output.rst
 
 .. _download-setup:
 
-The Release 2 Setup
--------------------
+Model Setup
+-----------
 
 .. include:: eccov4r2_setup.rst
 
@@ -30,8 +33,18 @@ The :ref:`mitgcmdirs` is shown below. While organizing the downloaded directorie
 
 .. _download-analysis:
 
-The Gcmfaces Toolbox
---------------------
+Matlab Toolbox
+--------------
+
+To be continued ... 
+
+Python Toolbox
+--------------
+
+To be continued ... 
+
+Matlab Toolbox
+--------------
 
 The `gcmfaces` toolbox :cite:`for-eta:15` can be used to analyze model output that has either been downloaded (:numref:`download-solution`) or reproduced (:numref:`eccov4-baseline`) by users. From the command line, you can install either the `Matlab` version by executing:
 
