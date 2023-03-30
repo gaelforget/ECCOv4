@@ -7,6 +7,7 @@
 [Estimating the Circulation and Climate of the Ocean]: https://ecco-group.org
 [MIT general circulation model]: http://mitgcm.org/
 [Dataverse]: https://dataverse.harvard.edu/dataverse/ECCOv4r2
+[direct download]: https://dspace.mit.edu/bitstream/handle/1721.1/102062/standardAnalysis.pdf
 
 [ECCO V4](http://www.geosci-model-dev.net/8/3071/2015/) is an ocean state estimate from the [Estimating the Circulation and Climate of the Ocean][] consortium. It is an optimized solution of the [MIT general circulation model][] that covers 1992 to 2011 (in V4r2). Its input and output are available for direct download from [Dataverse][]. 
 
