@@ -18,6 +18,7 @@ Other solutions and additional resources are discussed after.
 
    introduction.rst
    downloads.rst
+   analyses.rst
    runs.rst
    biblirefs.rst
 
