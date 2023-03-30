@@ -1,13 +1,15 @@
-# ECCO version 4
+# ECCO Version 4
 
 [![DOI](https://zenodo.org/badge/76184688.svg)](https://zenodo.org/badge/latestdoi/76184688)
 [![Documentation Status](https://readthedocs.org/projects/eccov4/badge/?version=latest)](https://eccov4.readthedocs.io/en/latest/?badge=latest)
 
 **Content:**
 
-This repository contains model settings and documentation ([readthedocs](http://eccov4.readthedocs.io/en/latest/)) that allow users to download, analyze, rerun, or modify ECCO version 4 ocean state estimates using the [MITgcm](http://mitgcm.org/) via on-premise computers or [cloud-computing recipes](docs/example_scripts/README.md)). Model output can be analyzed and manipulated using the [gcmfaces][] and [MITprof][] toolboxes in `Matlab / Octave`. Other toolboxes are available in `Python` and `Julia`. For user support, please contact <mitgcm-support@mit.edu> or <ecco-support@mit.edu>.
+Model configuration and documentation ([readthedocs](http://eccov4.readthedocs.io/en/latest/)) to download, analyze, or rerun ocean state estimates in [ECCO V4](http://dx.doi.org/10.5194/gmd-8-3071-2015). Model output can be analyzed using toolboxes listed for `Julia`, `Python`, and `Matlab/Octave`. Model configuration (of [MITgcm](http://mitgcm.org/)) runs on cloud or local computers as explained.
 
-[Estimating the Circulation and Climate of the Ocean]: https://ecco.jpl.nasa.gov
+_For user support, please open an issue on GitHub, or contact <mitgcm-support@mit.edu> or <ecco-support@mit.edu>._
+
+[Estimating the Circulation and Climate of the Ocean]: https://ecco-group.org
 [MIT general circulation model]: https://mitgcm.readthedocs.io
 [Amazon Web Services' cfncluster]: https://aws.amazon.com/hpc/cfncluster/
 [Dataverse]: https://dataverse.harvard.edu/dataverse/ECCOv4r2
@@ -18,9 +20,9 @@ This repository contains model settings and documentation ([readthedocs](http://
 
 **ECCO version 4 release 2:** 
 
-[Estimating the Circulation and Climate of the Ocean][] version 4 release 2 is an ocean state estimate and solution of the [MIT general circulation model][] that covers the period from 1992 to 2011 (Forget et al., 2016). It is a minor update of the original ECCO version 4 solution (Forget et al., 2015) that benefits from a few additional corrections listed in Forget et al. (2016) and is easier to analyze and re-run. Its input and output are available for direct download from [Dataverse][]. 
+[ECCO V4r2](http://www.geosci-model-dev.net/8/3071/2015/) is an ocean state estimate from the [Estimating the Circulation and Climate of the Ocean][] consortium. It is an optimized solution of the [MIT general circulation model](http://mitgcm.org/) that covers the period from 1992 to 2011. Its input and output are available for direct download from [Dataverse][]. 
 
-Other ECCOv4 solutions? See `Other known solutions` in the [docs](https://eccov4.readthedocs.io).
+_For other ECCOv4 solutions, please refer to [the docs](https://eccov4.readthedocs.io)._
 
 **References:**
 
