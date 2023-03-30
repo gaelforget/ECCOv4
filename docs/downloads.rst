@@ -1,8 +1,8 @@
 
 .. _downloads:
 
-Downloading
-***********
+Download
+********
 
 This section provides directions to download the `ECCO v4 r2` output (:numref:`download-solution`), the underlying model setup that can be used to re-run `ECCO v4 r2` (:numref:`download-setup`), tools for manipulating and analyzing model output (:numref:`download-analysis`), and a list of additional resources (:numref:`other-resources`).
 

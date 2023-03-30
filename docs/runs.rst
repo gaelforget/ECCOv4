@@ -1,7 +1,7 @@
 
 .. _runs:
 
-Rerunning
+Reproduce
 *********
 
 This section first explains how the `MITgcm` can be used to re-run the `ECCO v4 r2` solution over the 1992–2011 period (:numref:`eccov4-baseline`). Other state estimate solutions (:numref:`eccov4-other`), short regression tests (:numref:`testreport`), and optimization tests (:numref:`optim`) are discussed afterwards. 
