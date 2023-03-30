@@ -14,11 +14,11 @@ It was the first update to the original solution of :cite:`for-eta:15` with a fe
 
 #. easier to rerun than ECCO version 4 release 1
 
-Table of content :
+Next in the docs :
 
-- :ref:`downloads` for an installation guide and links to various analysis tools. 
+⏩️ :ref:`downloads` for an installation guide and links to various analysis tools. 
 
--  :ref:`runs` for simple instructions to reproduce the model simulation. 
+⏩️ :ref:`runs` for simple instructions to reproduce the model simulation. 
 
 .. note::
 
