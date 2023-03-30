@@ -6,9 +6,7 @@
 Welcome to ECCO version 4's documentation!
 ==========================================
 
-Learn to download, analyze, or reproduce `ECCO version 4` solutions :cite:`for-eta:15`. 
-
-In :ref:`downloads` and :ref:`runs` we take ECCO V4 `release 2` as an example. 
+Learn to download, analyze, or reproduce `ECCO version 4` solutions :cite:`for-eta:15`. In :ref:`downloads`, :ref:`analyses`, and :ref:`runs` we focus on ECCO V4r2 (`release 2`), taken as an example. 
 Other solutions and additional resources are discussed after. 
 
 .. toctree::
