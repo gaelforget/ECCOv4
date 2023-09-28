@@ -27,7 +27,7 @@ function compute(pth0)
  ntave=length(tave)
  
  #pth00=MeshArrays.GRID_LLC90
- pth00="run"
+ pth00=pth0 #"run"
  RAC=Main.eccotest.RAC_masked(pth00)
  vol=Main.eccotest.vol_masked(pth00)
  G,LC=Main.eccotest.load_llc90_grid(pth00)
@@ -143,7 +143,7 @@ eccotest.compare(report,ref)
 """
 function compare(A::DataFrame,B::DataFrame)
  println("Error report:")
- for v in unique(A.name)
+ for v in intersect(unique(A.name),unique(B.name))
   x=compare(A,B,v)
   if x > 0.01
     y=Int(round(100*x))
@@ -164,6 +164,7 @@ function compare(A::DataFrame,B::DataFrame,v::AbstractString)
  a=sort(A[A.name.==v,:],:index)
  b=sort(B[B.name.==v,:],:index)
  nv=min(length(a.index),length(b.index))
+ #nv=6
  if nv==1 
    abs(a.value[1]-b.value[1])/abs(a.value[1])
  else
@@ -192,10 +193,15 @@ function parse_fc(fil)
 end
 
 function list_diags_files(pth0)
-  state_2d_set1=glob("state_2d_set1*data",joinpath(pth0,"diags"))
-  state_3d_set1=glob("state_3d_set1*data",joinpath(pth0,"diags"))
-  trsp_3d_set1=glob("trsp_3d_set1*data",joinpath(pth0,"diags"))
-  trsp_3d_set2=glob("trsp_3d_set2*data",joinpath(pth0,"diags"))
+  if isdir(joinpath(pth0,"diags","STATE"))
+      (STATE,TRSP)=("STATE","TRSP")
+  else
+      (STATE,TRSP)=("","")
+  end
+  state_2d_set1=glob("state_2d_set1*data",joinpath(pth0,"diags",STATE))
+  state_3d_set1=glob("state_3d_set1*data",joinpath(pth0,"diags",STATE))
+  trsp_3d_set1=glob("trsp_3d_set1*data",joinpath(pth0,"diags",TRSP))
+  trsp_3d_set2=glob("trsp_3d_set2*data",joinpath(pth0,"diags",TRSP))
   (state_2d_set1=state_2d_set1,state_3d_set1=state_3d_set1,
     trsp_3d_set1=trsp_3d_set1,trsp_3d_set2=trsp_3d_set2)
 end
